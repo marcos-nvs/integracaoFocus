@@ -1,9 +1,17 @@
+
+import br.com.focus.configuracao.ConfigClient;
+import br.com.focus.configuracao.CriaArquivo;
+import br.com.focus.integradorfocus.ThreadsIntegracao;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author F12684146896
@@ -197,7 +205,18 @@ public class Integador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         edtStatus.setText("INICIANDO");
         taMensagem.append("Iniciando o processo de integração\n");
-        
+
+        try {
+            ConfigClient configCliente = CriaArquivo.ConstroiArquivoXML();
+            ThreadsIntegracao integracao = new ThreadsIntegracao(configCliente);
+
+            integracao.start();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Integador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

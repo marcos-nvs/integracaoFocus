@@ -5,7 +5,7 @@
  */
 package br.com.focus.utils;
 
-import br.com.focus.integradorfocus.Launcher;
+//import br.com.focus.integradorfocus.Launcher;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -33,15 +33,15 @@ public class VerificaConexaoRemoto {
                 blRetorno = true;
             } else {
                 blRetorno = false;
-                Launcher.logOneMoreLine(3, "WebServer ' " + url + " ' fora do ar");
+//                Launcher.logOneMoreLine(3, "WebServer ' " + url + " ' fora do ar");
             }
             huc.disconnect();
         } catch (UnknownHostException ex) {
             blRetorno = false;
-            Launcher.logOneMoreLine(3, ex.getMessage());
+//            Launcher.logOneMoreLine(3, ex.getMessage());
         } catch (IOException ex) {
             blRetorno = false;
-            Launcher.logOneMoreLine(3, ex.getMessage());
+//            Launcher.logOneMoreLine(3, ex.getMessage());
         }
 
         return blRetorno;

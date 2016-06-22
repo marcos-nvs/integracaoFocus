@@ -5,7 +5,7 @@
  */
 package br.com.focus.configuracao;
 
-import br.com.focus.integradorfocus.Launcher;
+//import br.com.focus.integradorfocus.Launcher;
 import com.thoughtworks.xstream.XStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -38,14 +38,14 @@ public class CriaArquivo {
                     "DIR_BACKUPOKAY",
                     "DIR_BACKUPERRO",
                     "SQLSERVER",
-                    2L, "", "", 90, 30, "", "");
+                    2L, "", "", 90, 30, "", "", "");
 
             gravaArquivo(configClient.getPathRoot() + "config_client.xml", stream.toXML(configClient));
             configuraDiretorioSistema(configClient);
             System.out.println("O arquivo config_client.xml foi criado no caminho ' " + configClient.getPathRoot() + " '.  Configure a restart a aplicacao .....");
             System.exit(0);
         } else {
-            Launcher.logOneMoreLine(3, "Arquivo de configuração já existe");
+//            Launcher.logOneMoreLine(3, "Arquivo de configuração já existe");
             stream.alias("ConfigClient", ConfigClient.class);
             configClient = (ConfigClient) stream.fromXML(leArquivo(file.getCanonicalPath()));
 
@@ -69,12 +69,12 @@ public class CriaArquivo {
                 bw.write(conteudoArquivo);
                 save = true;
             } catch (IOException ex) {
-                Launcher.logOneMoreLine(1, "Ocorreu um erro na criação do arquivo " + ex.getMessage());
+//                Launcher.logOneMoreLine(1, "Ocorreu um erro na criação do arquivo " + ex.getMessage());
             } finally {
                 bw.close();
             }
         } catch (IOException ex) {
-            Launcher.logOneMoreLine(1, "Ocorreu um erro na criação do arquivo " + ex.getMessage());
+//            Launcher.logOneMoreLine(1, "Ocorreu um erro na criação do arquivo " + ex.getMessage());
         }
         return save;
     }
@@ -124,12 +124,12 @@ public class CriaArquivo {
                 }
 
             } catch (IOException ex) {
-                Launcher.logOneMoreLine(1, "Ocorreu um erro na abertura do arquivo " + ex.getMessage());
+//                Launcher.logOneMoreLine(1, "Ocorreu um erro na abertura do arquivo " + ex.getMessage());
             } finally {
                 br.close();
             }
         } catch (IOException ex) {
-            Launcher.logOneMoreLine(1, "Ocorreu um erro na abertura do arquivo " + ex.getMessage());
+//            Launcher.logOneMoreLine(1, "Ocorreu um erro na abertura do arquivo " + ex.getMessage());
         }
         return sb.toString();
     }

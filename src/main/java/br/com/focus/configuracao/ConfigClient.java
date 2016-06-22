@@ -40,13 +40,15 @@ public class ConfigClient implements Serializable{
     
     private String usuario;
     private String senha;
+    
+    private String codLaboratorio;
 
     public ConfigClient() {
     }
 
     public ConfigClient(int minimumLoopTime, int maxmumLoopTime, String smbDomain, String smbUser, String smbPassword, String nameDirIn, 
             String nameDirReturn, String pathRoot, String nameDirBackUpOkay, String nameDirBackUpError, String strDbName, Long maxSize, 
-            String termination, String urlWebService,int daysBack,int maxmumOldFileDaysLogs, String usuario, String senha) {
+            String termination, String urlWebService,int daysBack,int maxmumOldFileDaysLogs, String usuario, String senha, String codLaboratorio) {
 
         if(minimumLoopTime  == 0){
            this.minimumLoopTime = 5000; 
@@ -87,6 +89,8 @@ public class ConfigClient implements Serializable{
         
         this.usuario = usuario;
         this.senha = senha;
+        this.codLaboratorio = codLaboratorio;
+        
     }
 
     public int getMinimumLoopTime() {
@@ -225,29 +229,43 @@ public class ConfigClient implements Serializable{
         this.senha = senha;
     }
 
+    public String getCodLaboratorio() {
+        return codLaboratorio;
+    }
+
+    public void setCodLaboratorio(String codLaboratorio) {
+        this.codLaboratorio = codLaboratorio;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + this.minimumLoopTime;
-        hash = 17 * hash + this.maxmumLoopTime;
-        hash = 17 * hash + this.maxmumOldFileDays;
-        hash = 17 * hash + this.maxmumOldFileDaysLogs;
-        hash = 17 * hash + Objects.hashCode(this.smbDomain);
-        hash = 17 * hash + Objects.hashCode(this.smbUser);
-        hash = 17 * hash + Objects.hashCode(this.smbPassword);
-        hash = 17 * hash + Objects.hashCode(this.nameDirIn);
-        hash = 17 * hash + Objects.hashCode(this.nameDirReturn);
-        hash = 17 * hash + Objects.hashCode(this.pathRoot);
-        hash = 17 * hash + Objects.hashCode(this.nameDirBackUpOkay);
-        hash = 17 * hash + Objects.hashCode(this.nameDirBackUpError);
-        hash = 17 * hash + Objects.hashCode(this.strDbName);
-        hash = 17 * hash + Objects.hashCode(this.maxSize);
-        hash = 17 * hash + Objects.hashCode(this.termination);
+        hash = 41 * hash + this.minimumLoopTime;
+        hash = 41 * hash + this.maxmumLoopTime;
+        hash = 41 * hash + this.maxmumOldFileDays;
+        hash = 41 * hash + this.maxmumOldFileDaysLogs;
+        hash = 41 * hash + Objects.hashCode(this.smbDomain);
+        hash = 41 * hash + Objects.hashCode(this.smbUser);
+        hash = 41 * hash + Objects.hashCode(this.smbPassword);
+        hash = 41 * hash + Objects.hashCode(this.nameDirIn);
+        hash = 41 * hash + Objects.hashCode(this.nameDirReturn);
+        hash = 41 * hash + Objects.hashCode(this.pathRoot);
+        hash = 41 * hash + Objects.hashCode(this.nameDirBackUpOkay);
+        hash = 41 * hash + Objects.hashCode(this.nameDirBackUpError);
+        hash = 41 * hash + Objects.hashCode(this.strDbName);
+        hash = 41 * hash + Objects.hashCode(this.maxSize);
+        hash = 41 * hash + Objects.hashCode(this.termination);
+        hash = 41 * hash + Objects.hashCode(this.usuario);
+        hash = 41 * hash + Objects.hashCode(this.senha);
+        hash = 41 * hash + Objects.hashCode(this.codLaboratorio);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -294,10 +312,19 @@ public class ConfigClient implements Serializable{
         if (!Objects.equals(this.strDbName, other.strDbName)) {
             return false;
         }
-        if (!Objects.equals(this.maxSize, other.maxSize)) {
+        if (!Objects.equals(this.termination, other.termination)) {
             return false;
         }
-        if (!Objects.equals(this.termination, other.termination)) {
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.senha, other.senha)) {
+            return false;
+        }
+        if (!Objects.equals(this.codLaboratorio, other.codLaboratorio)) {
+            return false;
+        }
+        if (!Objects.equals(this.maxSize, other.maxSize)) {
             return false;
         }
         return true;
@@ -305,6 +332,7 @@ public class ConfigClient implements Serializable{
 
     @Override
     public String toString() {
-        return "ConfigClient{" + "minimumLoopTime=" + minimumLoopTime + ", maxmumLoopTime=" + maxmumLoopTime + ", maxmumOldFileDays=" + maxmumOldFileDays + ", maxmumOldFileDaysLogs=" + maxmumOldFileDaysLogs + ", smbDomain=" + smbDomain + ", smbUser=" + smbUser + ", smbPassword=" + smbPassword + ", nameDirIn=" + nameDirIn + ", nameDirReturn=" + nameDirReturn + ", pathRoot=" + pathRoot + ", nameDirBackUpOkay=" + nameDirBackUpOkay + ", nameDirBackUpError=" + nameDirBackUpError + ", strDbName=" + strDbName + ", maxSize=" + maxSize + ", termination=" + termination + '}';
+        return "ConfigClient{" + "minimumLoopTime=" + minimumLoopTime + ", maxmumLoopTime=" + maxmumLoopTime + ", maxmumOldFileDays=" + maxmumOldFileDays + ", maxmumOldFileDaysLogs=" + maxmumOldFileDaysLogs + ", smbDomain=" + smbDomain + ", smbUser=" + smbUser + ", smbPassword=" + smbPassword + ", nameDirIn=" + nameDirIn + ", nameDirReturn=" + nameDirReturn + ", pathRoot=" + pathRoot + ", nameDirBackUpOkay=" + nameDirBackUpOkay + ", nameDirBackUpError=" + nameDirBackUpError + ", strDbName=" + strDbName + ", maxSize=" + maxSize + ", termination=" + termination + ", usuario=" + usuario + ", senha=" + senha + ", codLaboratorio=" + codLaboratorio + '}';
     }
+
 }

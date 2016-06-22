@@ -1,0 +1,20 @@
+<br.com.focus.configuracao.ConfigClient>
+  <minimumLoopTime>20000</minimumLoopTime>
+  <maxmumLoopTime>10000</maxmumLoopTime>
+  <maxmumOldFileDays>90</maxmumOldFileDays>
+  <maxmumOldFileDaysLogs>30</maxmumOldFileDaysLogs>
+  <smbDomain></smbDomain>
+  <smbUser></smbUser>
+  <smbPassword></smbPassword>
+  <nameDirIn>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/DIR_ENTRADA</nameDirIn>
+  <nameDirReturn>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/DIR_RETORNO</nameDirReturn>
+  <pathRoot>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/</pathRoot>
+  <nameDirBackUpOkay>DIR_BACKUPOKAY</nameDirBackUpOkay>
+  <nameDirBackUpError>DIR_BACKUPERRO</nameDirBackUpError>
+  <strDbName>SQLSERVER</strDbName>
+  <maxSize>2</maxSize>
+  <termination></termination>
+  <usuario></usuario>
+  <senha></senha>
+  <codLaboratorio>10</codLaboratorio>
+</br.com.focus.configuracao.ConfigClient>
