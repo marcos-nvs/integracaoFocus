@@ -6,5 +6,54 @@
     <property name="hibernate.connection.url">jdbc:sqlserver://NBSP183290;databaseName=saude</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">Kareta46</property>
+    
+    <mapping class="br.com.focus.entities.Agendaexa"/>
+    <mapping class="br.com.focus.entities.AgendaexaColeta"/>
+    <mapping class="br.com.focus.entities.AgendaexaMaster"/>
+    <mapping class="br.com.focus.entities.AuditImpManualCnes"/>
+    <mapping class="br.com.focus.entities.Bpaitens"/>
+    <mapping class="br.com.focus.entities.CadExame"/>
+    <mapping class="br.com.focus.entities.CaraterAtend"/>
+    <mapping class="br.com.focus.entities.CboUnif"/>
+    <mapping class="br.com.focus.entities.Cid"/>
+    <mapping class="br.com.focus.entities.Coletaexa"/>
+    <mapping class="br.com.focus.entities.ConselhoClasse"/>
+    <mapping class="br.com.focus.entities.Convenio"/>
+    <mapping class="br.com.focus.entities.CotasExaLabUni"/>
+    <mapping class="br.com.focus.entities.Cotasexalab"/>
+    <mapping class="br.com.focus.entities.EmpresasOpm"/>
+    <mapping class="br.com.focus.entities.EquipamentoExa"/>
+    <mapping class="br.com.focus.entities.Equipes"/>
+    <mapping class="br.com.focus.entities.EsusIdentificacao"/>
+    <mapping class="br.com.focus.entities.FamiliaExame"/>
+    <mapping class="br.com.focus.entities.GrupoUsuarios"/>
+    <mapping class="br.com.focus.entities.Grupoexa"/>
+    <mapping class="br.com.focus.entities.Grupoprocedi"/>
+    <mapping class="br.com.focus.entities.Internacao"/>
+    <mapping class="br.com.focus.entities.Labexa"/>
+    <mapping class="br.com.focus.entities.LoteFatura"/>
+    <mapping class="br.com.focus.entities.LoteexaColeta"/>
+    <mapping class="br.com.focus.entities.MaterialExa"/>
+    <mapping class="br.com.focus.entities.MotivoAlta"/>
+    <mapping class="br.com.focus.entities.PacienteRestricaoAlimentar"/>
+    <mapping class="br.com.focus.entities.Pacientes"/>
+    <mapping class="br.com.focus.entities.ProcedimentoUnif"/>
+    <mapping class="br.com.focus.entities.Procedimentos"/>
+    <mapping class="br.com.focus.entities.Profissao"/>
+    <mapping class="br.com.focus.entities.Profissionais"/>
+    <mapping class="br.com.focus.entities.Rubrica"/>
+    <mapping class="br.com.focus.entities.ServicoClassificacao"/>
+    <mapping class="br.com.focus.entities.Servicos"/>
+    <mapping class="br.com.focus.entities.Termo"/>
+    <mapping class="br.com.focus.entities.TipoAgravo"/>
+    <mapping class="br.com.focus.entities.TipoClinica"/>
+    <mapping class="br.com.focus.entities.TipoInternacao"/>
+    <mapping class="br.com.focus.entities.TipoPlano"/>
+    <mapping class="br.com.focus.entities.Tipoparto"/>
+    <mapping class="br.com.focus.entities.UnidadeSolicitante"/>
+    <mapping class="br.com.focus.entities.Usuarios"/>
+    
   </session-factory>
-</hibernate-configuration>
+  
+      
+  </hibernate-configuration>

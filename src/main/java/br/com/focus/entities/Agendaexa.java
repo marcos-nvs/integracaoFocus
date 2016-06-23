@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author F12684146896
+ * @author Marcos Naves
  */
 @Entity
 @Table(name = "AGENDAEXA")

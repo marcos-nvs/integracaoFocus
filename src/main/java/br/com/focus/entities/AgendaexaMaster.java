@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author F12684146896
+ * @author Marcos Naves
  */
 @Entity
 @Table(name = "AGENDAEXA_MASTER")

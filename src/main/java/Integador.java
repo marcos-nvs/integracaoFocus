@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 /**
  *
- * @author F12684146896
+ * @author Marcos Naves
  */
 public class Integador extends javax.swing.JFrame {
 

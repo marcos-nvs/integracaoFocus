@@ -4,8 +4,11 @@
  */
 package br.com.ln.hibernate.utils;
 
+import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.entities.Labexa;
 import java.text.SimpleDateFormat;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -23,7 +26,7 @@ public class SessionHelper {
         Transaction tx = null;
 
         if (session == null || !session.isOpen()) {
-            return SessionFactoriByDBName.getCurrentSession4FacesByDbName(strDbName);
+            return SessionFactoriByDBName.getCurrentSession4FacesFocus();
         } else {
             return session;
         }
@@ -37,6 +40,17 @@ public class SessionHelper {
         Labexa labExa = null;
         
         try{
+            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
+            tx = session.beginTransaction();
+            
+            Query query = session.createSQLQuery(StaticQuery.cientificalab);
+            
+            List list = query.list();
+            tx.commit();
+            
+            if (list != null && !list.isEmpty()){
+                labExa = (Labexa) list.get(0);
+            }
             
         }finally{
             if (session != null && session.isOpen()){
@@ -44,6 +58,28 @@ public class SessionHelper {
             }
         }
         return labExa;
+    }
+    
+    public AgendaexaMaster getSolicitacao(String codLaboratorio){
+        
+        Session session = null;
+        Transaction tx;
+        AgendaexaMaster agendaexaMaster = null;
+        
+        try{
+            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
+            tx = session.beginTransaction();
+            
+            Query query = session.getNamedQuery(codLaboratorio);
+            
+        }finally{
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        
+        return agendaexaMaster;
+        
     }
 
 }
