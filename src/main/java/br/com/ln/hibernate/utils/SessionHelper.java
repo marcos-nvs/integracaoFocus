@@ -6,6 +6,7 @@ package br.com.ln.hibernate.utils;
 
 import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.entities.Labexa;
+import br.com.focus.entities.LnUsuario;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import org.hibernate.Query;
@@ -83,4 +84,31 @@ public class SessionHelper {
         
     }
 
+    public static LnUsuario getUsuario(String usuario) {
+        
+        Session session = null;
+        Transaction tx;
+        LnUsuario lnUsuario = null;
+        
+        try{
+            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
+            tx = session.beginTransaction();
+            
+            Query query = session.getNamedQuery("LnUsuario.findByUsuStCodigo");
+            query.setString("usuStCodigo", usuario);
+            
+            List list = query.list();
+            tx.commit();
+            
+            if (list != null && !list.isEmpty()){
+                lnUsuario = (LnUsuario) list.get(0);
+            }
+            
+        }finally{
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        return lnUsuario;
+    }
 }

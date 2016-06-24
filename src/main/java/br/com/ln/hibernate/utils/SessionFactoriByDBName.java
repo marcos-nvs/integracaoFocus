@@ -12,6 +12,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
 
 /**
  *
@@ -36,6 +37,8 @@ public class SessionFactoriByDBName implements Serializable {
 
     private static SessionFactory buildSessionFactoryFocus() {
 
+//        ServiceRegistry serviceRegistry = null;
+//        
         SessionFactory sessionFactory = null;
         try {
             Configuration cfg = new Configuration().configure();
@@ -44,9 +47,12 @@ public class SessionFactoriByDBName implements Serializable {
             sessionFactory = cfg.buildSessionFactory(seviceRegistry);
         } catch (HibernateException ex) {
             ex.printStackTrace();
+            System.out.println("Erro HibernateException ====>>> " + ex.getMessage());
         } catch (Exception ex){
+            System.out.println("Erro Exception ====>>> " + ex.getMessage());
             ex.printStackTrace();
         }
+       
         return sessionFactory;
     }
 }

@@ -8,6 +8,7 @@ package br.com.focus.integradorfocus;
 import br.com.focus.configuracao.ConfigClient;
 //import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.entities.Labexa;
+import br.com.focus.entities.LnUsuario;
 import br.com.focus.utils.VerificaConexaoRemoto;
 import br.com.ln.hibernate.utils.SessionHelper;
 //import br.com.ln.entities.AgendaExaMaster;
@@ -49,13 +50,21 @@ public class ThreadsIntegracao extends Thread {
                     if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
 
                         if (!codLaboratorio.equals("")) {
+                            
+//                            LnUsuario lnUsuario = SessionHelper.getUsuario("Naves");
+//                            System.out.println("Usuario : " + lnUsuario.getUsuStNome());
+//                            
+//                            taMensagem.append(lnUsuario.getUsuStNome());
+                            
+                            
+//                            Labexa laboratorio = null;
                             Labexa laboratorio = SessionHelper.getLaboratorio(new Integer(codLaboratorio));
                             
                             System.out.println("labexa - " + laboratorio.toString());
 
                             if (laboratorio != null) {
                                 System.out.println("Laboratorio : " + laboratorio.toString());
-                                taMensagem.append("Laboratorio : " + laboratorio.getNome());
+//                                taMensagem.append("Laboratorio : " + laboratorio.getNome());
                                 Thread.sleep(minimumLoopTime);
                             } else {
                                 System.out.println("Laboratorio nao encontrado !!!!");
