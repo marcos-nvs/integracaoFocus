@@ -9,7 +9,9 @@ import org.hibernate.HibernateException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -36,10 +38,14 @@ public class SessionFactoriByDBName implements Serializable {
 
         SessionFactory sessionFactory = null;
         try {
-            sessionFactory = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
-            return sessionFactory;
-        } catch (HibernateException xcp) {
-            System.out.println(xcp.getMessage());
+            Configuration cfg = new Configuration().configure();
+            cfg.configure("hibernate.cfg.xml");
+            StandardServiceRegistry seviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
+            sessionFactory = cfg.buildSessionFactory(seviceRegistry);
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } catch (Exception ex){
+            ex.printStackTrace();
         }
         return sessionFactory;
     }

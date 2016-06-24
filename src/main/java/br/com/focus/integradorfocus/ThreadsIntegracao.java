@@ -14,6 +14,7 @@ import br.com.ln.hibernate.utils.SessionHelper;
 //import br.com.ln.entities.LabExa;
 //import br.com.ln.utils.VerificaConexaoRemoto;
 import java.net.MalformedURLException;
+import javax.swing.JTextArea;
 //import java.util.List;
 
 /**
@@ -27,14 +28,16 @@ public class ThreadsIntegracao extends Thread {
     private final int minimumLoopTime;
     private int minimumLoopTimeBase;
     private final int maxmumLoopTime;
+    JTextArea taMensagem;
 
-    public ThreadsIntegracao(ConfigClient configClient) {
+    public ThreadsIntegracao(JTextArea taMensagem, ConfigClient configClient) {
 
         this.configClient = configClient;
         this.codLaboratorio = configClient.getCodLaboratorio();
         this.maxmumLoopTime = configClient.getMaxmumLoopTime();
         this.minimumLoopTime = configClient.getMinimumLoopTime();
         this.minimumLoopTimeBase = configClient.getMinimumLoopTime();
+        this.taMensagem = taMensagem;
     }
 
     @Override
@@ -46,10 +49,13 @@ public class ThreadsIntegracao extends Thread {
                     if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
 
                         if (!codLaboratorio.equals("")) {
-                            Labexa laboratorio = SessionHelper.getLaboratorio(codLaboratorio);
+                            Labexa laboratorio = SessionHelper.getLaboratorio(new Integer(codLaboratorio));
+                            
+                            System.out.println("labexa - " + laboratorio.toString());
 
                             if (laboratorio != null) {
-                                
+                                System.out.println("Laboratorio : " + laboratorio.toString());
+                                taMensagem.append("Laboratorio : " + laboratorio.getNome());
                                 Thread.sleep(minimumLoopTime);
                             } else {
                                 System.out.println("Laboratorio nao encontrado !!!!");

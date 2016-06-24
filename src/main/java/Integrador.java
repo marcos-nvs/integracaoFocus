@@ -16,12 +16,12 @@ import java.util.logging.Logger;
  *
  * @author Marcos Naves
  */
-public class Integador extends javax.swing.JFrame {
+public class Integrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form Integador
+     * Creates new form Integrador
      */
-    public Integador() {
+    public Integrador() {
         initComponents();
     }
 
@@ -132,8 +132,9 @@ public class Integador extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
         jToolBar1.setToolTipText("");
 
-        jLabel5.setText("Versão - Teste");
+        jLabel5.setText("Versão : 1.0-SNAPSHOT");
         jToolBar1.add(jLabel5);
+        jLabel5.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,12 +209,12 @@ public class Integador extends javax.swing.JFrame {
 
         try {
             ConfigClient configCliente = CriaArquivo.ConstroiArquivoXML();
-            ThreadsIntegracao integracao = new ThreadsIntegracao(configCliente);
+            ThreadsIntegracao integracao = new ThreadsIntegracao(taMensagem, configCliente);
 
             integracao.start();
             
         } catch (IOException ex) {
-            Logger.getLogger(Integador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Integrador.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -241,20 +242,21 @@ public class Integador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Integador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Integrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Integador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Integrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Integador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Integrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Integador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Integrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Integador().setVisible(true);
+                new Integrador().setVisible(true);
             }
         });
     }

@@ -235,7 +235,8 @@ public class Labexa implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.focus.entities.Labexa[ codLab=" + codLab + " ]";
+        return "Labexa{" + "codLab=" + codLab + ", nome=" + nome + ", telefone=" + telefone + ", cidade=" + cidade + ", endereco=" + endereco + ", responsavel=" + responsavel + ", tipoCV=" + tipoCV + ", valortotal=" + valortotal + ", ativo=" + ativo + ", nomeUsuUsando=" + nomeUsuUsando + ", maqUsando=" + maqUsando + ", dataUsando=" + dataUsando + ", codUsuUsando=" + codUsuUsando + ", cotasexalabList=" + cotasexalabList + ", agendaexaList=" + agendaexaList + '}';
     }
+
     
 }

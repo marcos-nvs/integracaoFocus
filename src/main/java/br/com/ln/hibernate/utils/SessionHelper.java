@@ -33,7 +33,7 @@ public class SessionHelper {
     }
     
 
-    public static Labexa getLaboratorio(String codLaboratorio) {
+    public static Labexa getLaboratorio(Integer codLaboratorio) {
         
         Session session = null;
         Transaction tx;
@@ -43,7 +43,8 @@ public class SessionHelper {
             session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
             tx = session.beginTransaction();
             
-            Query query = session.createSQLQuery(StaticQuery.cientificalab);
+            Query query = session.getNamedQuery("Labexa.findByCodLab");
+            query.setInteger("codLab", codLaboratorio);
             
             List list = query.list();
             tx.commit();
