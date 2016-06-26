@@ -7,8 +7,7 @@ package br.com.focus.integradorfocus;
 
 import br.com.focus.configuracao.ConfigClient;
 //import br.com.focus.entities.AgendaexaMaster;
-import br.com.focus.entities.Labexa;
-import br.com.focus.entities.LnUsuario;
+import br.com.focus.objetos.Laboratorio;
 import br.com.focus.utils.VerificaConexaoRemoto;
 import br.com.ln.hibernate.utils.SessionHelper;
 //import br.com.ln.entities.AgendaExaMaster;
@@ -46,46 +45,40 @@ public class ThreadsIntegracao extends Thread {
 
         try {
             while (true) {
-                try {
-                    if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
-
+//                try {
+//                    if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
                         if (!codLaboratorio.equals("")) {
-                            
-//                            LnUsuario lnUsuario = SessionHelper.getUsuario("Naves");
-//                            System.out.println("Usuario : " + lnUsuario.getUsuStNome());
-//                            
-//                            taMensagem.append(lnUsuario.getUsuStNome());
-                            
-                            
-//                            Labexa laboratorio = null;
-                            Labexa laboratorio = SessionHelper.getLaboratorio(new Integer(codLaboratorio));
-                            
-                            System.out.println("labexa - " + laboratorio.toString());
+
+                            Laboratorio laboratorio = SessionHelper.getLaboratorio(new Integer(codLaboratorio));
 
                             if (laboratorio != null) {
-                                System.out.println("Laboratorio : " + laboratorio.toString());
-//                                taMensagem.append("Laboratorio : " + laboratorio.getNome());
-                                Thread.sleep(minimumLoopTime);
+
+                                if (laboratorio.getAtivo()) {
+                                    taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratorio : " + laboratorio.getNome() + "\n");
+                                    Thread.sleep(minimumLoopTime);
+                                } else {
+                                    taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratório não está ativo \n");
+                                }
                             } else {
-                                System.out.println("Laboratorio nao encontrado !!!!");
+                                System.out.println(SessionHelper.getDateDbSqlServer() + " - Laboratorio nao encontrado !!!! \n");
                                 Thread.sleep(minimumLoopTime);
                             }
                         } else {
                             System.out.println("Laboratorio nao definido!!!!");;
                             Thread.sleep(minimumLoopTime);
                         }
-                    } else {
-                        this.forcaSistemaDormir(1, "Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase));
-                    }
-                } catch (MalformedURLException ex) {
-                    this.minimumLoopTimeBase = 0;
-//                    Launcher.logOneMoreLine(1, ex.getMessage());
-                    Thread.sleep(minimumLoopTime);
-                }
+//                    } else {
+//                        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase) + "\n");
+//                        this.minimumLoopTimeBase = minimumLoopTimeBase + minimumLoopTimeBase;
+//                        Thread.sleep(minimumLoopTimeBase);
+//                    }
+//                } catch (MalformedURLException ex) {
+//                    this.minimumLoopTimeBase = 0;
+//                }
             }
 
         } catch (InterruptedException ex) {
-//            Launcher.logOneMoreLine(0, ex.getMessage() + "\\n Sistema interrompido");
+            taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Ocorreu um problema durante o processo !! \n");
         }
     }
 

@@ -5,6 +5,8 @@
 package br.com.ln.hibernate.utils;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import org.hibernate.HibernateException;
 
 import org.hibernate.Session;
@@ -20,9 +22,16 @@ import org.hibernate.service.ServiceRegistry;
  */
 public class SessionFactoriByDBName implements Serializable {
 
-    public static Session getCurrentSession4FacesFocus() {
-        SessionFactory factory = getSessionFactoryFocus();
-        return factory.openSession();
+    static SessionFactory sessionFactory;
+
+    public static Session getCurrentSessionFacesFocus() {
+
+        if (sessionFactory != null) {
+            return sessionFactory.openSession();
+        } else {
+            SessionFactory factory = getSessionFactoryFocus();
+            return factory.openSession();
+        }
     }
 
     public Session getCurrentSession4FacesByDbName2() {
@@ -37,8 +46,6 @@ public class SessionFactoriByDBName implements Serializable {
 
     private static SessionFactory buildSessionFactoryFocus() {
 
-//        ServiceRegistry serviceRegistry = null;
-//        
         SessionFactory sessionFactory = null;
         try {
             Configuration cfg = new Configuration().configure();
@@ -48,11 +55,11 @@ public class SessionFactoriByDBName implements Serializable {
         } catch (HibernateException ex) {
             ex.printStackTrace();
             System.out.println("Erro HibernateException ====>>> " + ex.getMessage());
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Erro Exception ====>>> " + ex.getMessage());
             ex.printStackTrace();
         }
-       
+
         return sessionFactory;
     }
 }

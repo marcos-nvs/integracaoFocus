@@ -4,10 +4,9 @@
  */
 package br.com.ln.hibernate.utils;
 
-import br.com.focus.entities.AgendaexaMaster;
-import br.com.focus.entities.Labexa;
-import br.com.focus.entities.LnUsuario;
+import br.com.focus.objetos.Laboratorio;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,98 +16,69 @@ import org.hibernate.Transaction;
  *
  * @author Marcos Naves
  */
-
 public class SessionHelper {
 
     public static SimpleDateFormat formatOnlyYear = new SimpleDateFormat("yyyy");
-    
-    public static Session getSessionDude(String strDbName) {
-        Session session = null;
-        Transaction tx = null;
 
-        if (session == null || !session.isOpen()) {
-            return SessionFactoriByDBName.getCurrentSession4FacesFocus();
-        } else {
-            return session;
-        }
-    }
-    
+    public static Laboratorio getLaboratorio(Integer codLaboratorio) {
 
-    public static Labexa getLaboratorio(Integer codLaboratorio) {
-        
         Session session = null;
         Transaction tx;
-        Labexa labExa = null;
-        
-        try{
-            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
+        Laboratorio laboratorio = null;
+
+        try {
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
-            
-            Query query = session.getNamedQuery("Labexa.findByCodLab");
+
+            Query query = session.createSQLQuery("select COD_LAB, NOME, ATIVO from LABEXA where cod_lab = :codLab");
             query.setInteger("codLab", codLaboratorio);
-            
+
             List list = query.list();
             tx.commit();
-            
-            if (list != null && !list.isEmpty()){
-                labExa = (Labexa) list.get(0);
+
+            if (list != null && !list.isEmpty()) {
+
+                for (Object obj : list) {
+                    Object[] tupla = (Object[]) obj;
+                    
+                    laboratorio = new Laboratorio();
+
+                    laboratorio.setCodLab((Integer) tupla[0]);
+                    laboratorio.setNome((String) tupla[1]);
+                    laboratorio.setAtivo((Boolean) tupla[2]);
+                }
             }
-            
-        }finally{
-            if (session != null && session.isOpen()){
+
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
-        return labExa;
+        return laboratorio;
     }
     
-    public AgendaexaMaster getSolicitacao(String codLaboratorio){
+    public static Date getDateDbSqlServer(){
         
         Session session = null;
         Transaction tx;
-        AgendaexaMaster agendaexaMaster = null;
+        
+        Date dataDb = null;
         
         try{
-            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
-            tx = session.beginTransaction();
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx =session.beginTransaction();
             
-            Query query = session.getNamedQuery(codLaboratorio);
-            
-        }finally{
-            if (session != null && session.isOpen()){
-                session.close();
-            }
-        }
-        
-        return agendaexaMaster;
-        
-    }
-
-    public static LnUsuario getUsuario(String usuario) {
-        
-        Session session = null;
-        Transaction tx;
-        LnUsuario lnUsuario = null;
-        
-        try{
-            session = SessionFactoriByDBName.getCurrentSession4FacesFocus();
-            tx = session.beginTransaction();
-            
-            Query query = session.getNamedQuery("LnUsuario.findByUsuStCodigo");
-            query.setString("usuStCodigo", usuario);
-            
+            Query query = session.createSQLQuery("select GETDATE()");
             List list = query.list();
-            tx.commit();
             
             if (list != null && !list.isEmpty()){
-                lnUsuario = (LnUsuario) list.get(0);
+                dataDb = (Date) list.get(0);
             }
-            
         }finally{
             if (session != null && session.isOpen()){
                 session.close();
             }
         }
-        return lnUsuario;
+        return dataDb;
     }
 }

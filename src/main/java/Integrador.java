@@ -2,6 +2,7 @@
 import br.com.focus.configuracao.ConfigClient;
 import br.com.focus.configuracao.CriaArquivo;
 import br.com.focus.integradorfocus.ThreadsIntegracao;
+import br.com.ln.hibernate.utils.SessionHelper;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class Integrador extends javax.swing.JFrame {
 
+    ThreadsIntegracao integracao;
     /**
      * Creates new form Integrador
      */
@@ -204,12 +206,15 @@ public class Integrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        edtStatus.setText("INICIANDO");
-        taMensagem.append("Iniciando o processo de integração\n");
+        edtStatus.setText("INICIADO");
+        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Iniciado o processo de integração\n");
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(false);
 
         try {
             ConfigClient configCliente = CriaArquivo.ConstroiArquivoXML();
-            ThreadsIntegracao integracao = new ThreadsIntegracao(taMensagem, configCliente);
+            integracao = new ThreadsIntegracao(taMensagem, configCliente);
 
             integracao.start();
             
@@ -222,7 +227,12 @@ public class Integrador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         edtStatus.setText("PARADO");
-        taMensagem.append("Parando o processo de integração\n");
+        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Parando o processo de integração\n");
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(true);
+        integracao.stop();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
