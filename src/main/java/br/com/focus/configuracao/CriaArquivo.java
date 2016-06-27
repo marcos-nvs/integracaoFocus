@@ -6,6 +6,10 @@
 package br.com.focus.configuracao;
 
 //import br.com.focus.integradorfocus.Launcher;
+import br.com.focus.utils.DateManipulador;
+import br.com.focus.utils.SimpleDateFormatsSamples;
+import br.com.focus.view.TelaIntegracao;
+import br.com.ln.hibernate.utils.SessionHelper;
 import com.thoughtworks.xstream.XStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,7 +24,7 @@ import java.io.IOException;
  */
 public class CriaArquivo {
 
-    public static ConfigClient ConstroiArquivoXML() throws IOException {
+    public static ConfigClient constroiArquivoXML() throws IOException {
 
         XStream stream = new XStream();
         ConfigClient configClient;
@@ -133,4 +137,21 @@ public class CriaArquivo {
         }
         return sb.toString();
     }
+    
+    public static void gravaLog(ConfigClient configClient) {
+
+        File file = new File((new File("")).getAbsoluteFile().getAbsolutePath() + "/logs/integrador_" 
+                + DateManipulador.formatDateToPattern("yyyy-MM-dd", SessionHelper.getDateDbSqlServer()) +".log");
+
+        if (!file.isFile()) {
+            System.out.println("file : " + file.getAbsolutePath());
+            gravaArquivo(file.getAbsolutePath(), TelaIntegracao.taMensagem.getText());
+        } else {
+            String texto = leArquivo(file.getAbsolutePath());
+            System.out.println("Texto : " + texto);
+            
+            gravaArquivo(file.getAbsolutePath(), texto + TelaIntegracao.taMensagem.getText());
+        }
+    }
+    
 }

@@ -29,15 +29,15 @@ public class SessionFactoriByDBName implements Serializable {
         if (sessionFactory != null) {
             return sessionFactory.openSession();
         } else {
-            SessionFactory factory = getSessionFactoryFocus();
-            return factory.openSession();
+            sessionFactory = getSessionFactoryFocus();
+            return sessionFactory.openSession();
         }
     }
 
-    public Session getCurrentSession4FacesByDbName2() {
-        SessionFactory factory = getSessionFactoryFocus();
-        return factory.openSession();
-    }
+//    public Session getCurrentSession4FacesByDbName2() {
+//        SessionFactory factory = getSessionFactoryFocus();
+//        return factory.openSession();
+//    }
 
     private static SessionFactory getSessionFactoryFocus() {
         SessionFactory sessionFactory = buildSessionFactoryFocus();

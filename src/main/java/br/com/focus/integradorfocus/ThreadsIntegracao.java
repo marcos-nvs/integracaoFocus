@@ -16,6 +16,7 @@ import br.com.ln.hibernate.utils.SessionHelper;
 //import br.com.ln.utils.VerificaConexaoRemoto;
 import java.net.MalformedURLException;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 //import java.util.List;
 
 /**
@@ -24,21 +25,18 @@ import javax.swing.JTextArea;
  */
 public class ThreadsIntegracao extends Thread {
 
-    ConfigClient configClient;
     String codLaboratorio;
     private final int minimumLoopTime;
     private int minimumLoopTimeBase;
     private final int maxmumLoopTime;
-    JTextArea taMensagem;
 
-    public ThreadsIntegracao(JTextArea taMensagem, ConfigClient configClient) {
+    public ThreadsIntegracao(ConfigClient configClient) {
 
-        this.configClient = configClient;
+        TelaIntegracao.configClient = configClient;
         this.codLaboratorio = configClient.getCodLaboratorio();
         this.maxmumLoopTime = configClient.getMaxmumLoopTime();
         this.minimumLoopTime = configClient.getMinimumLoopTime();
         this.minimumLoopTimeBase = configClient.getMinimumLoopTime();
-        this.taMensagem = taMensagem;
     }
 
     @Override
@@ -55,22 +53,22 @@ public class ThreadsIntegracao extends Thread {
                             if (laboratorio != null) {
 
                                 if (laboratorio.getAtivo()) {
-                                    taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratorio : " + laboratorio.getNome() + "\n");
-                                    
+                                    TelaIntegracao.incluiMensagem("Laboratorio : " + laboratorio.getNome());
+
                                     Thread.sleep(minimumLoopTime);
                                 } else {
-                                    taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratório não está ativo \n");
+                                    TelaIntegracao.incluiMensagem("Laboratório não está ativo");
                                 }
                             } else {
-                                System.out.println(SessionHelper.getDateDbSqlServer() + " - Laboratorio nao encontrado !!!! \n");
+                                TelaIntegracao.incluiMensagem("Laboratorio nao encontrado !!!!");
                                 Thread.sleep(minimumLoopTime);
                             }
                         } else {
-                            System.out.println("Laboratorio nao definido!!!!");;
+                            TelaIntegracao.incluiMensagem("Laboratorio nao definido!!!!");
                             Thread.sleep(minimumLoopTime);
                         }
                     } else {
-                        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase) + "\n");
+                        TelaIntegracao.incluiMensagem("Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase));
                         this.minimumLoopTimeBase = minimumLoopTimeBase + minimumLoopTimeBase;
                         Thread.sleep(minimumLoopTimeBase);
                     }
@@ -80,7 +78,7 @@ public class ThreadsIntegracao extends Thread {
             }
 
         } catch (InterruptedException ex) {
-            taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Ocorreu um problema durante o processo !! \n");
+            TelaIntegracao.incluiMensagem("Ocorreu um problema durante o processo !!");
         }
     }
 

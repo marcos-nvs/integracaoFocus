@@ -2,10 +2,12 @@
 import br.com.focus.configuracao.ConfigClient;
 import br.com.focus.configuracao.CriaArquivo;
 import br.com.focus.integradorfocus.ThreadsIntegracao;
+import br.com.focus.view.TelaIntegracao;
 import br.com.ln.hibernate.utils.SessionHelper;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JScrollPane;
 
 
 /*
@@ -66,7 +68,7 @@ public class Integrador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(322, 322, 322)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +164,8 @@ public class Integrador extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(edtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,8 +194,8 @@ public class Integrador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -207,14 +208,17 @@ public class Integrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         edtStatus.setText("INICIADO");
-        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Iniciado o processo de integração\n");
+        TelaIntegracao.taMensagem = this.taMensagem;
+        TelaIntegracao.edtExame = this.edtExame;
+        TelaIntegracao.edtPaciente = this.edtPaciente;
+        taMensagem = TelaIntegracao.incluiMensagem("Integração iniciada!!!");
         jButton1.setEnabled(false);
         jButton2.setEnabled(true);
         jButton3.setEnabled(false);
 
         try {
-            ConfigClient configCliente = CriaArquivo.ConstroiArquivoXML();
-            integracao = new ThreadsIntegracao(taMensagem, configCliente);
+            ConfigClient configCliente = CriaArquivo.constroiArquivoXML();
+            integracao = new ThreadsIntegracao(configCliente);
 
             integracao.start();
             

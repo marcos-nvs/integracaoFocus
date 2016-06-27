@@ -15,6 +15,8 @@ public class ProtocoloDasa implements Serializable{
     
     public void realizaIntegracao(){
         
+        
+        
     }
     
 }

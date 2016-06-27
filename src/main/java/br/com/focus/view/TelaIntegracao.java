@@ -5,6 +5,9 @@
  */
 package br.com.focus.view;
 
+import br.com.focus.configuracao.ConfigClient;
+import br.com.focus.configuracao.CriaArquivo;
+import br.com.ln.hibernate.utils.SessionHelper;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -19,6 +22,21 @@ public class TelaIntegracao {
     public static JTextArea taMensagem;
     public static JTextField edtExame;
     public static JTextField edtPaciente;
+    public static ConfigClient configClient;
 
+    
+    public static JTextArea incluiMensagem(String mensagem){
+        
+        if (mensagem != null){
+            taMensagem.append(SessionHelper.getDateDbSqlServer() + " - " + mensagem + "\n");
+        }
+        
+        if (taMensagem.getLineCount() >= 10) {
+            CriaArquivo.gravaLog(configClient);
+            taMensagem.setText("");
+        }
+        
+        return taMensagem;
+    }
     
 }
