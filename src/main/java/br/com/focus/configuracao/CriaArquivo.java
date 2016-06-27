@@ -144,12 +144,9 @@ public class CriaArquivo {
                 + DateManipulador.formatDateToPattern("yyyy-MM-dd", SessionHelper.getDateDbSqlServer()) +".log");
 
         if (!file.isFile()) {
-            System.out.println("file : " + file.getAbsolutePath());
             gravaArquivo(file.getAbsolutePath(), TelaIntegracao.taMensagem.getText());
         } else {
             String texto = leArquivo(file.getAbsolutePath());
-            System.out.println("Texto : " + texto);
-            
             gravaArquivo(file.getAbsolutePath(), texto + TelaIntegracao.taMensagem.getText());
         }
     }
