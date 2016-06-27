@@ -138,7 +138,7 @@ public class CriaArquivo {
         return sb.toString();
     }
     
-    public static void gravaLog(ConfigClient configClient) {
+    public static void gravaLog() {
 
         File file = new File((new File("")).getAbsoluteFile().getAbsolutePath() + "/logs/integrador_" 
                 + DateManipulador.formatDateToPattern("yyyy-MM-dd", SessionHelper.getDateDbSqlServer()) +".log");

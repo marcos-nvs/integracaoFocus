@@ -32,7 +32,7 @@ public class TelaIntegracao {
         }
         
         if (taMensagem.getLineCount() >= 10) {
-            CriaArquivo.gravaLog(configClient);
+            CriaArquivo.gravaLog();
             taMensagem.setText("");
         }
         
