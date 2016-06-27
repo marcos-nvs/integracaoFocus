@@ -9,6 +9,7 @@ import br.com.focus.configuracao.ConfigClient;
 //import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.objetos.Laboratorio;
 import br.com.focus.utils.VerificaConexaoRemoto;
+import br.com.focus.view.TelaIntegracao;
 import br.com.ln.hibernate.utils.SessionHelper;
 //import br.com.ln.entities.AgendaExaMaster;
 //import br.com.ln.entities.LabExa;
@@ -45,8 +46,8 @@ public class ThreadsIntegracao extends Thread {
 
         try {
             while (true) {
-//                try {
-//                    if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
+                try {
+                    if (VerificaConexaoRemoto.verificaWebServerRemoto("http://ciewebservice.dasa.com.br/wsintegra/LoteExamesXmlReceiver")) {
                         if (!codLaboratorio.equals("")) {
 
                             Laboratorio laboratorio = SessionHelper.getLaboratorio(new Integer(codLaboratorio));
@@ -55,6 +56,7 @@ public class ThreadsIntegracao extends Thread {
 
                                 if (laboratorio.getAtivo()) {
                                     taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratorio : " + laboratorio.getNome() + "\n");
+                                    
                                     Thread.sleep(minimumLoopTime);
                                 } else {
                                     taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Laboratório não está ativo \n");
@@ -67,14 +69,14 @@ public class ThreadsIntegracao extends Thread {
                             System.out.println("Laboratorio nao definido!!!!");;
                             Thread.sleep(minimumLoopTime);
                         }
-//                    } else {
-//                        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase) + "\n");
-//                        this.minimumLoopTimeBase = minimumLoopTimeBase + minimumLoopTimeBase;
-//                        Thread.sleep(minimumLoopTimeBase);
-//                    }
-//                } catch (MalformedURLException ex) {
-//                    this.minimumLoopTimeBase = 0;
-//                }
+                    } else {
+                        taMensagem.append(SessionHelper.getDateDbSqlServer() + " - Computador fora da internet ou servidor inacessível indo dormir por " + (minimumLoopTimeBase + minimumLoopTimeBase) + "\n");
+                        this.minimumLoopTimeBase = minimumLoopTimeBase + minimumLoopTimeBase;
+                        Thread.sleep(minimumLoopTimeBase);
+                    }
+                } catch (MalformedURLException ex) {
+                    this.minimumLoopTimeBase = 0;
+                }
             }
 
         } catch (InterruptedException ex) {

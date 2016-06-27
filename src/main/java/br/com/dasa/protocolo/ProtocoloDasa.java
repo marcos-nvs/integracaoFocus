@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.dasa;
+package br.com.dasa.protocolo;
 
 import java.io.Serializable;
 
@@ -11,9 +11,10 @@ import java.io.Serializable;
  *
  * @author Marcos Naves
  */
-public class ProtocoloCientificalab implements Serializable{
+public class ProtocoloDasa implements Serializable{
     
-    
-    
+    public void realizaIntegracao(){
+        
+    }
     
 }
