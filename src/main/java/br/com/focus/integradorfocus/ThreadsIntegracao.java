@@ -5,6 +5,7 @@
  */
 package br.com.focus.integradorfocus;
 
+import br.com.dasa.protocolo.ProtocoloDasa;
 import br.com.focus.configuracao.ConfigClient;
 //import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.objetos.Laboratorio;
@@ -54,6 +55,12 @@ public class ThreadsIntegracao extends Thread {
 
                                 if (laboratorio.getAtivo()) {
                                     TelaIntegracao.incluiMensagem("Laboratorio : " + laboratorio.getNome());
+                                    
+                                    if (laboratorio.getCodLab() == 10){
+                                        ProtocoloDasa dasa = new ProtocoloDasa();
+                                        dasa.realizaIntegracao(laboratorio);
+                                    }
+                                    
 
                                     Thread.sleep(minimumLoopTime);
                                 } else {

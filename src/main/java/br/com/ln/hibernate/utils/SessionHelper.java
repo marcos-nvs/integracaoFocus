@@ -81,4 +81,29 @@ public class SessionHelper {
         }
         return dataDb;
     }
+    
+    public static List<Object> getInformacaoLab(Integer codLab){
+        
+        Session session = null;
+        Transaction tx;
+        List<Object> listObj = null;
+        
+        try{
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx = session.beginTransaction();
+            
+            Query query = session.createSQLQuery(StaticQuery.cientificalab);
+            query.setInteger("codLab", codLab);
+            
+            listObj = query.list();
+            tx.commit();
+            
+        }finally {
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        
+        return listObj;
+    }
 }

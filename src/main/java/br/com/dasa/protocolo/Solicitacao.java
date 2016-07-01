@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Marcos Naves
  */
-public class SolicitacaoExame implements Serializable{
+public class Solicitacao implements Serializable{
     
     private String usuario;
     private String senha;
@@ -41,7 +41,7 @@ public class SolicitacaoExame implements Serializable{
     private Paciente paciente;
     private List<Exame> listaExames;
 
-    public SolicitacaoExame() {
+    public Solicitacao() {
     }
 
     public String getUsuario() {
@@ -286,7 +286,7 @@ public class SolicitacaoExame implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final SolicitacaoExame other = (SolicitacaoExame) obj;
+        final Solicitacao other = (Solicitacao) obj;
         if (!Objects.equals(this.usuario, other.usuario)) {
             return false;
         }

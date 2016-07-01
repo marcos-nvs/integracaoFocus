@@ -5,7 +5,9 @@
  */
 package br.com.dasa.protocolo;
 
+import br.com.focus.objetos.Laboratorio;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -13,8 +15,20 @@ import java.io.Serializable;
  */
 public class ProtocoloDasa implements Serializable{
     
-    public void realizaIntegracao(){
+    public void realizaIntegracao(Laboratorio laboratorio){
         
+        ProtocoloDasaDao dasaDao = new ProtocoloDasaDao();
+        
+        //Buscar as informações;
+        List<Solicitacao> listSolicitacao = dasaDao.buscaInformacaoLaboratorio(laboratorio.getCodLab());
+                
+        
+        
+        //Tratar as informações
+        //Transformar em XML
+        //Enviar para CL
+        //Tratar o retorno
+        //Marcar como enviado
         
         
     }
