@@ -26,7 +26,7 @@ public class ProtocoloDasaDao implements Serializable {
         List<Object> listaObj = SessionHelper.getInformacaoLab(codLab);
 
         if (listaObj != null && !listaObj.isEmpty()) {
-            TelaIntegracao.incluiMensagem("Quantidade de informações encontradas a serem tratadas- " + listaObj.size());
+            TelaIntegracao.incluiMensagem("Quantidade de informações - " + listaObj.size());
 
             for (Object object : listaObj) {
                 Object[] tupla = (Object[]) object;
@@ -66,8 +66,6 @@ public class ProtocoloDasaDao implements Serializable {
                 List<Exame> listaExame = new ArrayList<>();
                 listaExame.add(buildListExame(tupla));
                 solicitacao.setListaExames(listaExame);
-
-                System.out.println("solicitacao : " + solicitacao.toString());
             }
         } else {
             TelaIntegracao.incluiMensagem("Não há informações para serem enviadas!!");
