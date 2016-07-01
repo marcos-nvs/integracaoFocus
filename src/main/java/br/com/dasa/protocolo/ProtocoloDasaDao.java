@@ -67,9 +67,8 @@ public class ProtocoloDasaDao implements Serializable {
                 listaExame.add(buildListExame(tupla));
                 solicitacao.setListaExames(listaExame);
             }
-        } else {
-            TelaIntegracao.incluiMensagem("Não há informações para serem enviadas!!");
         }
+        
         return listSolicitacao;
     }
 
