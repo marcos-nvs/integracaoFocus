@@ -67,6 +67,6 @@ public class StaticQuery {
             + "  LEFT JOIN SAUDE.DBO.CAD_EXAME CE ON AE.COD_SUB_EXA = CE.COD_EXAME   \n"
             + "WHERE AE.ENVIADO_LAB IS NULL \n"
             + "  AND AE.STATUS = 'A' \n"
-            + "  AND AE.COD_LAB = :codLab";
-
+            + "  AND AE.COD_LAB = :codLab \n"
+            + "  and am.cod_agendaexa_master in (6,7)";
 }

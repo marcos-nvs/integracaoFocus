@@ -21,7 +21,7 @@ public class ProtocoloDasaDao implements Serializable {
 
     public List<Solicitacao> buscaInformacaoLaboratorio(Integer codLab) {
 
-        List<Solicitacao> listSolicitacao = null;
+        List<Solicitacao> listSolicitacao = new ArrayList<>();
 
         List<Object> listaObj = SessionHelper.getInformacaoLab(codLab);
 
@@ -35,6 +35,7 @@ public class ProtocoloDasaDao implements Serializable {
 
                 solicitacao.setUsuario(TelaIntegracao.configClient.getUsuario());
                 solicitacao.setSenha(TelaIntegracao.configClient.getSenha());
+                solicitacao.setTest(TelaIntegracao.configClient.getTeste());
 
                 solicitacao.setCodPedido(((Integer) tupla[0]).toString());
                 solicitacao.setDataCadastro(DateManipulador.formatDateToPattern("dd/MM/yyyy", (Date) tupla[1]));
@@ -51,12 +52,32 @@ public class ProtocoloDasaDao implements Serializable {
                 solicitacao.setHd((String) tupla[12]);
                 solicitacao.setCid((String) tupla[13]);
 
-                if (tupla[14] != null) {
+                if (tupla[14] != null && !tupla[14].equals("")) {
                     solicitacao.setCodLocal(((Integer) tupla[14]).toString());
                 }
                 solicitacao.setDescLocal((String) tupla[15]);
-                solicitacao.setLocalColeta((String) tupla[16]);
-                solicitacao.setMatricula((String) tupla[17]);
+                
+                if (solicitacao.getDescLocal() == null || solicitacao.getDescLocal().equals("")){
+                    solicitacao.setCodLocal(null);
+                }
+
+                if (tupla[16] != null && !tupla[16].equals("")) {
+                    solicitacao.setLocalColeta((String) tupla[16]);
+                }
+
+                if (tupla[17] != null && !tupla[17].equals("")) {
+                    solicitacao.setMatricula((String) tupla[17]);
+                }
+                
+                if (solicitacao.getRn() == null || solicitacao.getRn().equals("")){
+                    solicitacao.setRn("N");
+                }
+                
+                if (solicitacao.getGestante() == null || solicitacao.getGestante().equals("")){
+                    solicitacao.setGestante("N");
+                }
+                
+                
 
                 Solicitante solicitante = buildSolicitante(tupla);
                 solicitacao.setSolicitante(solicitante);
@@ -66,9 +87,10 @@ public class ProtocoloDasaDao implements Serializable {
                 List<Exame> listaExame = new ArrayList<>();
                 listaExame.add(buildListExame(tupla));
                 solicitacao.setListaExames(listaExame);
+                listSolicitacao.add(solicitacao);
             }
         }
-        
+
         return listSolicitacao;
     }
 
@@ -118,6 +140,10 @@ public class ProtocoloDasaDao implements Serializable {
         endereco.setCep((String) tupla[36]);
         endereco.setBairro((String) tupla[37]);
 
+        if (endereco.getLogradouro() == null) {
+            endereco = null;
+        }
+
         return endereco;
 
     }
@@ -130,7 +156,7 @@ public class ProtocoloDasaDao implements Serializable {
         exame.setDescExame((String) tupla[39]);
         exame.setCodMaterial((String) tupla[40]);
         exame.setDescMaterial((String) tupla[41]);
-        exame.setNumeroAmostra((String) tupla[42]);
+        //exame.setNumeroAmostra((String) tupla[42]);
 
         boolean bUrgente = (boolean) tupla[43];
 
@@ -142,7 +168,13 @@ public class ProtocoloDasaDao implements Serializable {
         exame.setVolume((String) tupla[44]);
         exame.setTempo((String) tupla[45]);
         exame.setImagem((String) tupla[46]);
+
         exame.setOrdemIntegracao((String) tupla[47]);
+
+        if (exame.getOrdemIntegracao() == null || exame.getOrdemIntegracao().equals("")) {
+            exame.setOrdemIntegracao(null);
+        }
+
         exame.setMaterialColetado("S");
 
         return exame;

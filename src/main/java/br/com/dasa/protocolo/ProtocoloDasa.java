@@ -7,8 +7,12 @@ package br.com.dasa.protocolo;
 
 import br.com.focus.objetos.Laboratorio;
 import br.com.focus.view.TelaIntegracao;
+import br.com.wservice.LoteExamesXmlReceiver;
+import br.com.wservice.LoteExamesXmlReceiver_Service;
+import com.thoughtworks.xstream.XStream;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -28,11 +32,11 @@ public class ProtocoloDasa implements Serializable {
         List<Solicitacao> listSolicitacao = dasaDao.buscaInformacaoLaboratorio(laboratorio.getCodLab());
 
         if (listSolicitacao != null && !listSolicitacao.isEmpty()) {
-            
+
             for (Solicitacao solicitacao : listSolicitacao) {
                 String pedido = solicitacao.getCodPedido();
-                
-                if (!mapSolicitacaoExame.containsKey(pedido)){
+
+                if (!mapSolicitacaoExame.containsKey(pedido)) {
                     mapSolicitacaoExame.put(pedido, solicitacao);
                 } else {
                     Solicitacao solExame = mapSolicitacaoExame.get(pedido);
@@ -43,15 +47,127 @@ public class ProtocoloDasa implements Serializable {
                     mapSolicitacaoExame.put(pedido, solExame);
                 }
             }
-            //Transformar em XML
-            //Enviar para CL
-            //Tratar o retorno
-            //Marcar como enviado
 
+            Iterator it = mapSolicitacaoExame.entrySet().iterator();
+
+            while (it.hasNext()) {
+                Map.Entry<String, Object> pair = (Map.Entry) it.next();
+
+                Solicitacao solicitacao = (Solicitacao) pair.getValue();
+
+                String xml = montaXml(solicitacao);
+                
+                System.out.println("XML : " + xml );
+                
+                envioXmlDasa(xml);
+                
+                
+                //Enviar para CL
+                //Tratar o retorno
+                //Marcar como enviado
+            }
+            mapSolicitacaoExame.clear();
+//
         } else {
             TelaIntegracao.incluiMensagem("Não há informações a serem enviadas!!");
         }
 
     }
 
+    private String montaXml(Solicitacao solicitacao) {
+
+        XStream xstream = new XStream();
+
+        xstream.alias("SOLICITACAO", Solicitacao.class);
+        xstream.aliasField("USUARIO", Solicitacao.class, "usuario");
+        xstream.aliasField("SENHA", Solicitacao.class, "senha");
+        xstream.aliasField("TEST", Solicitacao.class, "test");
+        xstream.aliasField("COD_REQUISICAO", Solicitacao.class, "codRequisicao");
+        xstream.aliasField("COD_PEDIDO", Solicitacao.class, "codPedido");
+        xstream.aliasField("DATA_CADASTRO", Solicitacao.class, "dataCadastro");
+        xstream.aliasField("PESO", Solicitacao.class, "peso");
+        xstream.aliasField("ALTURA", Solicitacao.class, "altura");
+        xstream.aliasField("GESTANTE", Solicitacao.class, "gestante");
+        xstream.aliasField("RN", Solicitacao.class, "rn");
+        xstream.aliasField("QUARTO", Solicitacao.class, "quarto");
+        xstream.aliasField("LEITO", Solicitacao.class, "leito");
+        xstream.aliasField("INFO_AUX", Solicitacao.class, "infoAux");
+        xstream.aliasField("COD_CONVENIO", Solicitacao.class, "codConvenio");
+        xstream.aliasField("COD_LOCAL", Solicitacao.class, "codLocal");
+        xstream.aliasField("DESC_LOCAL", Solicitacao.class, "descLocal");
+        xstream.aliasField("SISTEMA", Solicitacao.class, "sisStCodigo");
+        xstream.aliasField("LOCAL_COLETA", Solicitacao.class, "localColeta");
+        xstream.aliasField("MATRICULA", Solicitacao.class, "matricula");
+
+        xstream.aliasField("PACIENTE", Solicitacao.class, "paciente");
+        xstream.aliasField("PRONTUARIO", Paciente.class, "prontuario");
+        xstream.aliasField("NOME", Paciente.class, "nome");
+        xstream.aliasField("NASCIMENTO", Paciente.class, "nascimento");
+        xstream.aliasField("SEXO", Paciente.class, "sexo");
+        xstream.aliasField("CARTAO_SUS", Paciente.class, "cartaoSus");
+        xstream.aliasField("TEL", Paciente.class, "tel");
+        xstream.aliasField("CEL", Paciente.class, "cel");
+
+        xstream.aliasField("SOLICITANTE", Solicitacao.class, "solicitante");
+        xstream.aliasField("REGISTRO", Solicitante.class, "registro");
+        xstream.aliasField("REGISTRO_TIPO", Solicitante.class, "registroTipo");
+        xstream.aliasField("UF", Solicitante.class, "uf");
+        xstream.aliasField("NOME", Solicitante.class, "nome");
+
+        xstream.aliasField("EXAMES", Solicitacao.class, "listaExames");
+
+        xstream.aliasType("EXAME", Exame.class);
+
+        xstream.aliasField("COD_EXAME", Exame.class, "codExame");
+        xstream.aliasField("DESC_EXAME", Exame.class, "descExame");
+        xstream.aliasField("COD_MATERIAL", Exame.class, "codMaterial");
+        xstream.aliasField("DESC_MATERIAL", Exame.class, "descMaterial");
+        xstream.aliasField("NUMERO_AMOSTRA", Exame.class, "numeroAmostra");
+        xstream.aliasField("URGENTE", Exame.class, "urgente");
+        xstream.aliasField("VOLUME", Exame.class, "volume");
+        xstream.aliasField("TEMPO", Exame.class, "tempo");
+        xstream.aliasField("IMAGEM", Exame.class, "imagem");
+        xstream.aliasField("ORDEM_INTEGRACAO", Exame.class, "ordemIntegracao");
+        xstream.aliasField("MATERIAL_COLETADO", Exame.class, "materialColetado");
+
+        String xml = xstream.toXML(solicitacao);
+        return xml;
+    }
+
+    private void envioXmlDasa(String xml) {
+        
+        try{
+            LoteExamesXmlReceiver_Service service = new LoteExamesXmlReceiver_Service();
+            LoteExamesXmlReceiver portLoteExamesXmlReceiver = service.getLoteExamesXmlReceiverPort();
+
+            String retorno = portLoteExamesXmlReceiver.solicitacaoExames(xml);
+            
+            System.out.println("Retorno : " + retorno);
+        }catch (Exception xcp){
+            xcp.printStackTrace();
+        }
+    }
 }
+
+//        public File schemaValidator(String strUrl, String xml, XmlRetorno xmlRetorno) throws IOException, SAXException, Exception {
+//        File temp = null;
+//        try {
+//            URL schemaFile = new URL(strUrl);
+//            temp = createFileTempByOsType(xml);
+//            Source xmlFile = new StreamSource(temp);
+//            SchemaFactory schemaFactory = SchemaFactory
+//                    .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//            Schema schema = schemaFactory.newSchema(schemaFile);
+//            Validator validator = schema.newValidator();
+//            validator.validate(xmlFile);
+//        } catch (IOException xcp) {
+//            xmlRetorno.getLISTA_FATALS().add("IOException ...   " + xcp.getMessage());
+//            throw xcp;
+//        } catch (SAXException xcp) {
+//            xmlRetorno.getLISTA_FATALS().add("Formatacao do xml errada   " + xcp.getMessage());
+//            throw xcp;
+//        } finally {
+//            return temp;
+//        }
+//    }
+
