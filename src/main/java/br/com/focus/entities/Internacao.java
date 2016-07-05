@@ -277,8 +277,8 @@ public class Internacao implements Serializable {
     @JoinColumn(name = "COD_CLIN", referencedColumnName = "COD_CLIN")
     @ManyToOne(fetch = FetchType.EAGER)
     private TipoClinica codClin;
-    @OneToMany(mappedBy = "codIntern", fetch = FetchType.EAGER)
-    private List<AgendaexaMaster> agendaexaMasterList;
+//    @OneToMany(mappedBy = "codIntern", fetch = FetchType.EAGER)
+//    private List<AgendaexaMaster> agendaexaMasterList;
 
     public Internacao() {
     }
@@ -903,14 +903,14 @@ public class Internacao implements Serializable {
         this.codClin = codClin;
     }
 
-    @XmlTransient
-    public List<AgendaexaMaster> getAgendaexaMasterList() {
-        return agendaexaMasterList;
-    }
-
-    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
-        this.agendaexaMasterList = agendaexaMasterList;
-    }
+//    @XmlTransient
+//    public List<AgendaexaMaster> getAgendaexaMasterList() {
+//        return agendaexaMasterList;
+//    }
+//
+//    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
+//        this.agendaexaMasterList = agendaexaMasterList;
+//    }
 
     @Override
     public int hashCode() {

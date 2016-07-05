@@ -14,8 +14,8 @@
   <strDbName>SQLSERVER</strDbName>
   <maxSize>2</maxSize>
   <termination></termination>
-  <usuario>MARCOS</usuario>
-  <senha>12345</senha>
+  <usuario>FOCUS</usuario>
+  <senha>#ARA4590</senha>
   <codLaboratorio>10</codLaboratorio>
-  <teste>S</teste>
+  <teste>N</teste>
 </br.com.focus.configuracao.ConfigClient>

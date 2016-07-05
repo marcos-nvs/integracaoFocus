@@ -60,8 +60,8 @@ public class AgendaexaColeta implements Serializable {
     @JoinColumn(name = "COD_USU_COLETOU", referencedColumnName = "COD_USU")
     @ManyToOne(fetch = FetchType.EAGER)
     private Usuarios codUsuColetou;
-    @OneToMany(mappedBy = "codAgeexaColeta", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codAgeexaColeta", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public AgendaexaColeta() {
     }
@@ -126,14 +126,14 @@ public class AgendaexaColeta implements Serializable {
         this.codUsuColetou = codUsuColetou;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

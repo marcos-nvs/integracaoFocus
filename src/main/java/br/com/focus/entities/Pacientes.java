@@ -201,12 +201,12 @@ public class Pacientes implements Serializable {
     @JoinColumn(name = "COD_PAR", referencedColumnName = "COD_PAR")
     @ManyToOne(fetch = FetchType.EAGER)
     private Tipoparto codPar;
-    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
-    private List<Internacao> internacaoList;
-    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
-    private List<AgendaexaMaster> agendaexaMasterList;
-    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
+//    private List<Internacao> internacaoList;
+//    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
+//    private List<AgendaexaMaster> agendaexaMasterList;
+//    @OneToMany(mappedBy = "codPro", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Pacientes() {
     }
@@ -631,32 +631,32 @@ public class Pacientes implements Serializable {
         this.codPar = codPar;
     }
 
-    @XmlTransient
-    public List<Internacao> getInternacaoList() {
-        return internacaoList;
-    }
+//    @XmlTransient
+//    public List<Internacao> getInternacaoList() {
+//        return internacaoList;
+//    }
+//
+//    public void setInternacaoList(List<Internacao> internacaoList) {
+//        this.internacaoList = internacaoList;
+//    }
 
-    public void setInternacaoList(List<Internacao> internacaoList) {
-        this.internacaoList = internacaoList;
-    }
+//    @XmlTransient
+//    public List<AgendaexaMaster> getAgendaexaMasterList() {
+//        return agendaexaMasterList;
+//    }
+//
+//    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
+//        this.agendaexaMasterList = agendaexaMasterList;
+//    }
 
-    @XmlTransient
-    public List<AgendaexaMaster> getAgendaexaMasterList() {
-        return agendaexaMasterList;
-    }
-
-    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
-        this.agendaexaMasterList = agendaexaMasterList;
-    }
-
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

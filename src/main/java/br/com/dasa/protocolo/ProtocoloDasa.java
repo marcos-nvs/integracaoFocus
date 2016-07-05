@@ -5,8 +5,11 @@
  */
 package br.com.dasa.protocolo;
 
+import br.com.focus.entities.Agendaexa;
+import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.objetos.Laboratorio;
 import br.com.focus.view.TelaIntegracao;
+import br.com.ln.hibernate.utils.SessionHelper;
 import br.com.wservice.LoteExamesXmlReceiver;
 import br.com.wservice.LoteExamesXmlReceiver_Service;
 import com.thoughtworks.xstream.XStream;
@@ -56,13 +59,13 @@ public class ProtocoloDasa implements Serializable {
                 Solicitacao solicitacao = (Solicitacao) pair.getValue();
 
                 String xml = montaXml(solicitacao);
-                
-                System.out.println("XML : " + xml );
-                
-                envioXmlDasa(xml);
-                
-                
-                //Enviar para CL
+
+                String retorno = envioXmlDasa(xml);
+
+                if (retorno != null) {
+                    resultadoIntegracao(solicitacao, retorno);
+                }
+
                 //Tratar o retorno
                 //Marcar como enviado
             }
@@ -134,19 +137,47 @@ public class ProtocoloDasa implements Serializable {
         return xml;
     }
 
-    private void envioXmlDasa(String xml) {
-        
-        try{
+    private String envioXmlDasa(String xml) {
+
+        try {
             LoteExamesXmlReceiver_Service service = new LoteExamesXmlReceiver_Service();
             LoteExamesXmlReceiver portLoteExamesXmlReceiver = service.getLoteExamesXmlReceiverPort();
 
-            String retorno = portLoteExamesXmlReceiver.solicitacaoExames(xml);
-            
-            System.out.println("Retorno : " + retorno);
-        }catch (Exception xcp){
-            xcp.printStackTrace();
+            return portLoteExamesXmlReceiver.solicitacaoExames(xml);
+        } catch (Exception xcp) {
+            TelaIntegracao.incluiMensagem("Ocorreu um problema no envio da integração : " + xcp.getMessage());
+        }
+
+        return null;
+    }
+
+    private void resultadoIntegracao(Solicitacao solicitacao, String retorno) {
+
+        RetornoIntegracao retornoIntegracao = montaObjRetorno(retorno);
+
+        System.out.println("XmlRetorno :" + retornoIntegracao.toString());
+
+        List<AgendaexaMaster> listaAgendaexaMaster = SessionHelper.getAgendaExaMaster(new Integer(solicitacao.getCodPedido()));
+
+        if (listaAgendaexaMaster != null && !listaAgendaexaMaster.isEmpty()) {
+            for (AgendaexaMaster agendaexaMaster : listaAgendaexaMaster) {
+                System.out.println("Solicitacao sucess : " + agendaexaMaster.getCodAgendaexaMaster());
+            }
+
         }
     }
+
+    private RetornoIntegracao montaObjRetorno(String retorno) {
+
+        XStream xstream = new XStream();
+
+        xstream.alias("br.com.wservice.XmlRetorno", RetornoIntegracao.class);
+        xstream.aliasField("requisicaoIntegracao", RetornoIntegracao.class, "br.com.wservice.XmlRetorno");
+        xstream.aliasField("listaExames", RetornoExames.class, "LISTA_EXAMES");
+
+        return (RetornoIntegracao) xstream.fromXML(retorno);
+    }
+
 }
 
 //        public File schemaValidator(String strUrl, String xml, XmlRetorno xmlRetorno) throws IOException, SAXException, Exception {

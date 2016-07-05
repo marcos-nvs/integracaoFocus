@@ -35,55 +35,55 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "AgendaexaMaster.findAll", query = "SELECT a FROM AgendaexaMaster a"),
     @NamedQuery(name = "AgendaexaMaster.findByCodAgendaexaMaster", query = "SELECT a FROM AgendaexaMaster a WHERE a.codAgendaexaMaster = :codAgendaexaMaster"),
-    @NamedQuery(name = "AgendaexaMaster.findByNomeProf", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeProf = :nomeProf"),
-    @NamedQuery(name = "AgendaexaMaster.findByNomePac", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomePac = :nomePac"),
-    @NamedQuery(name = "AgendaexaMaster.findBySexoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.sexoPac = :sexoPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByDtNascPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.dtNascPac = :dtNascPac"),
-    @NamedQuery(name = "AgendaexaMaster.findBySusPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.susPac = :susPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByPesoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.pesoPac = :pesoPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByAlturaPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.alturaPac = :alturaPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByDum", query = "SELECT a FROM AgendaexaMaster a WHERE a.dum = :dum"),
-    @NamedQuery(name = "AgendaexaMaster.findByGestante", query = "SELECT a FROM AgendaexaMaster a WHERE a.gestante = :gestante"),
-    @NamedQuery(name = "AgendaexaMaster.findByRecemNascido", query = "SELECT a FROM AgendaexaMaster a WHERE a.recemNascido = :recemNascido"),
-    @NamedQuery(name = "AgendaexaMaster.findByExtInt", query = "SELECT a FROM AgendaexaMaster a WHERE a.extInt = :extInt"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodLab", query = "SELECT a FROM AgendaexaMaster a WHERE a.codLab = :codLab"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodCol", query = "SELECT a FROM AgendaexaMaster a WHERE a.codCol = :codCol"),
-    @NamedQuery(name = "AgendaexaMaster.findByDataExa", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataExa = :dataExa"),
-    @NamedQuery(name = "AgendaexaMaster.findByDataHoraColeta", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataHoraColeta = :dataHoraColeta"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodAla", query = "SELECT a FROM AgendaexaMaster a WHERE a.codAla = :codAla"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodQuarto", query = "SELECT a FROM AgendaexaMaster a WHERE a.codQuarto = :codQuarto"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodLeito", query = "SELECT a FROM AgendaexaMaster a WHERE a.codLeito = :codLeito"),
-    @NamedQuery(name = "AgendaexaMaster.findByCnesInternacao", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesInternacao = :cnesInternacao"),
-    @NamedQuery(name = "AgendaexaMaster.findByCnesExecutante", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesExecutante = :cnesExecutante"),
-    @NamedQuery(name = "AgendaexaMaster.findByCnesUniLogada", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesUniLogada = :cnesUniLogada"),
-    @NamedQuery(name = "AgendaexaMaster.findByColetaTotal", query = "SELECT a FROM AgendaexaMaster a WHERE a.coletaTotal = :coletaTotal"),
-    @NamedQuery(name = "AgendaexaMaster.findByUrgencia", query = "SELECT a FROM AgendaexaMaster a WHERE a.urgencia = :urgencia"),
-    @NamedQuery(name = "AgendaexaMaster.findByProtocoloAge", query = "SELECT a FROM AgendaexaMaster a WHERE a.protocoloAge = :protocoloAge"),
-    @NamedQuery(name = "AgendaexaMaster.findByMaquinaAgendo", query = "SELECT a FROM AgendaexaMaster a WHERE a.maquinaAgendo = :maquinaAgendo"),
-    @NamedQuery(name = "AgendaexaMaster.findByDataHoraAgendo", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataHoraAgendo = :dataHoraAgendo"),
-    @NamedQuery(name = "AgendaexaMaster.findByPermitiNovaColeta", query = "SELECT a FROM AgendaexaMaster a WHERE a.permitiNovaColeta = :permitiNovaColeta"),
-    @NamedQuery(name = "AgendaexaMaster.findByAla", query = "SELECT a FROM AgendaexaMaster a WHERE a.ala = :ala"),
-    @NamedQuery(name = "AgendaexaMaster.findByQuarto", query = "SELECT a FROM AgendaexaMaster a WHERE a.quarto = :quarto"),
-    @NamedQuery(name = "AgendaexaMaster.findByLeito", query = "SELECT a FROM AgendaexaMaster a WHERE a.leito = :leito"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodConv", query = "SELECT a FROM AgendaexaMaster a WHERE a.codConv = :codConv"),
-    @NamedQuery(name = "AgendaexaMaster.findByNomeConv", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeConv = :nomeConv"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodCid", query = "SELECT a FROM AgendaexaMaster a WHERE a.codCid = :codCid"),
-    @NamedQuery(name = "AgendaexaMaster.findByDescCid", query = "SELECT a FROM AgendaexaMaster a WHERE a.descCid = :descCid"),
-    @NamedQuery(name = "AgendaexaMaster.findByDescrUnisolicitante", query = "SELECT a FROM AgendaexaMaster a WHERE a.descrUnisolicitante = :descrUnisolicitante"),
-    @NamedQuery(name = "AgendaexaMaster.findByNlicenca", query = "SELECT a FROM AgendaexaMaster a WHERE a.nlicenca = :nlicenca"),
-    @NamedQuery(name = "AgendaexaMaster.findByRgPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.rgPac = :rgPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByCpfPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.cpfPac = :cpfPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByNomeResp", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeResp = :nomeResp"),
-    @NamedQuery(name = "AgendaexaMaster.findByDddFone", query = "SELECT a FROM AgendaexaMaster a WHERE a.dddFone = :dddFone"),
-    @NamedQuery(name = "AgendaexaMaster.findByFonePac", query = "SELECT a FROM AgendaexaMaster a WHERE a.fonePac = :fonePac"),
-    @NamedQuery(name = "AgendaexaMaster.findByDddCel", query = "SELECT a FROM AgendaexaMaster a WHERE a.dddCel = :dddCel"),
-    @NamedQuery(name = "AgendaexaMaster.findByCelPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.celPac = :celPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByCodDomPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.codDomPac = :codDomPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByEnderecoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.enderecoPac = :enderecoPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByNumEndPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.numEndPac = :numEndPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByBairroPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.bairroPac = :bairroPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByMunicipioPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.municipioPac = :municipioPac"),
-    @NamedQuery(name = "AgendaexaMaster.findByUfPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.ufPac = :ufPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNomeProf", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeProf = :nomeProf"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNomePac", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomePac = :nomePac"),
+//    @NamedQuery(name = "AgendaexaMaster.findBySexoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.sexoPac = :sexoPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDtNascPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.dtNascPac = :dtNascPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findBySusPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.susPac = :susPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByPesoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.pesoPac = :pesoPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByAlturaPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.alturaPac = :alturaPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDum", query = "SELECT a FROM AgendaexaMaster a WHERE a.dum = :dum"),
+//    @NamedQuery(name = "AgendaexaMaster.findByGestante", query = "SELECT a FROM AgendaexaMaster a WHERE a.gestante = :gestante"),
+//    @NamedQuery(name = "AgendaexaMaster.findByRecemNascido", query = "SELECT a FROM AgendaexaMaster a WHERE a.recemNascido = :recemNascido"),
+//    @NamedQuery(name = "AgendaexaMaster.findByExtInt", query = "SELECT a FROM AgendaexaMaster a WHERE a.extInt = :extInt"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodLab", query = "SELECT a FROM AgendaexaMaster a WHERE a.codLab = :codLab"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodCol", query = "SELECT a FROM AgendaexaMaster a WHERE a.codCol = :codCol"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDataExa", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataExa = :dataExa"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDataHoraColeta", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataHoraColeta = :dataHoraColeta"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodAla", query = "SELECT a FROM AgendaexaMaster a WHERE a.codAla = :codAla"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodQuarto", query = "SELECT a FROM AgendaexaMaster a WHERE a.codQuarto = :codQuarto"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodLeito", query = "SELECT a FROM AgendaexaMaster a WHERE a.codLeito = :codLeito"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCnesInternacao", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesInternacao = :cnesInternacao"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCnesExecutante", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesExecutante = :cnesExecutante"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCnesUniLogada", query = "SELECT a FROM AgendaexaMaster a WHERE a.cnesUniLogada = :cnesUniLogada"),
+//    @NamedQuery(name = "AgendaexaMaster.findByColetaTotal", query = "SELECT a FROM AgendaexaMaster a WHERE a.coletaTotal = :coletaTotal"),
+//    @NamedQuery(name = "AgendaexaMaster.findByUrgencia", query = "SELECT a FROM AgendaexaMaster a WHERE a.urgencia = :urgencia"),
+//    @NamedQuery(name = "AgendaexaMaster.findByProtocoloAge", query = "SELECT a FROM AgendaexaMaster a WHERE a.protocoloAge = :protocoloAge"),
+//    @NamedQuery(name = "AgendaexaMaster.findByMaquinaAgendo", query = "SELECT a FROM AgendaexaMaster a WHERE a.maquinaAgendo = :maquinaAgendo"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDataHoraAgendo", query = "SELECT a FROM AgendaexaMaster a WHERE a.dataHoraAgendo = :dataHoraAgendo"),
+//    @NamedQuery(name = "AgendaexaMaster.findByPermitiNovaColeta", query = "SELECT a FROM AgendaexaMaster a WHERE a.permitiNovaColeta = :permitiNovaColeta"),
+//    @NamedQuery(name = "AgendaexaMaster.findByAla", query = "SELECT a FROM AgendaexaMaster a WHERE a.ala = :ala"),
+//    @NamedQuery(name = "AgendaexaMaster.findByQuarto", query = "SELECT a FROM AgendaexaMaster a WHERE a.quarto = :quarto"),
+//    @NamedQuery(name = "AgendaexaMaster.findByLeito", query = "SELECT a FROM AgendaexaMaster a WHERE a.leito = :leito"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodConv", query = "SELECT a FROM AgendaexaMaster a WHERE a.codConv = :codConv"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNomeConv", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeConv = :nomeConv"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodCid", query = "SELECT a FROM AgendaexaMaster a WHERE a.codCid = :codCid"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDescCid", query = "SELECT a FROM AgendaexaMaster a WHERE a.descCid = :descCid"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDescrUnisolicitante", query = "SELECT a FROM AgendaexaMaster a WHERE a.descrUnisolicitante = :descrUnisolicitante"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNlicenca", query = "SELECT a FROM AgendaexaMaster a WHERE a.nlicenca = :nlicenca"),
+//    @NamedQuery(name = "AgendaexaMaster.findByRgPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.rgPac = :rgPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCpfPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.cpfPac = :cpfPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNomeResp", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeResp = :nomeResp"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDddFone", query = "SELECT a FROM AgendaexaMaster a WHERE a.dddFone = :dddFone"),
+//    @NamedQuery(name = "AgendaexaMaster.findByFonePac", query = "SELECT a FROM AgendaexaMaster a WHERE a.fonePac = :fonePac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByDddCel", query = "SELECT a FROM AgendaexaMaster a WHERE a.dddCel = :dddCel"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCelPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.celPac = :celPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByCodDomPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.codDomPac = :codDomPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByEnderecoPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.enderecoPac = :enderecoPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByNumEndPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.numEndPac = :numEndPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByBairroPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.bairroPac = :bairroPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByMunicipioPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.municipioPac = :municipioPac"),
+//    @NamedQuery(name = "AgendaexaMaster.findByUfPac", query = "SELECT a FROM AgendaexaMaster a WHERE a.ufPac = :ufPac"),
     @NamedQuery(name = "AgendaexaMaster.findByNomeUni", query = "SELECT a FROM AgendaexaMaster a WHERE a.nomeUni = :nomeUni")})
 public class AgendaexaMaster implements Serializable {
 
@@ -207,25 +207,25 @@ public class AgendaexaMaster implements Serializable {
     private String ufPac;
     @Column(name = "NOME_UNI")
     private String nomeUni;
-    @OneToMany(mappedBy = "codAgendaexaMaster", fetch = FetchType.EAGER)
-    private List<AgendaexaColeta> agendaexaColetaList;
-    @JoinColumn(name = "COD_INTERN", referencedColumnName = "COD_INTERN")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Internacao codIntern;
-    @JoinColumn(name = "COD_PRO", referencedColumnName = "COD_PRO")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Pacientes codPro;
-    @JoinColumn(name = "COD_PROF", referencedColumnName = "COD_PROF")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Profissionais codProf;
-    @JoinColumn(name = "COD_UNISOLICITANTE", referencedColumnName = "COD_UNISOLICITANTE")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private UnidadeSolicitante codUnisolicitante;
-    @JoinColumn(name = "COD_USU_AGENDO", referencedColumnName = "COD_USU")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Usuarios codUsuAgendo;
-    @OneToMany(mappedBy = "codAgendaexaMaster", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codAgendaexaMaster", fetch = FetchType.EAGER)
+//    private List<AgendaexaColeta> agendaexaColetaList;
+//    @JoinColumn(name = "COD_INTERN", referencedColumnName = "COD_INTERN")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Internacao codIntern;
+//    @JoinColumn(name = "COD_PRO", referencedColumnName = "COD_PRO")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Pacientes codPro;
+//    @JoinColumn(name = "COD_PROF", referencedColumnName = "COD_PROF")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Profissionais codProf;
+//    @JoinColumn(name = "COD_UNISOLICITANTE", referencedColumnName = "COD_UNISOLICITANTE")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private UnidadeSolicitante codUnisolicitante;
+//    @JoinColumn(name = "COD_USU_AGENDO", referencedColumnName = "COD_USU")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Usuarios codUsuAgendo;
+//    @OneToMany(mappedBy = "codAgendaexaMaster", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public AgendaexaMaster() {
     }
@@ -661,68 +661,68 @@ public class AgendaexaMaster implements Serializable {
     public String getNomeUni() {
         return nomeUni;
     }
-
-    public void setNomeUni(String nomeUni) {
-        this.nomeUni = nomeUni;
-    }
-
-    @XmlTransient
-    public List<AgendaexaColeta> getAgendaexaColetaList() {
-        return agendaexaColetaList;
-    }
-
-    public void setAgendaexaColetaList(List<AgendaexaColeta> agendaexaColetaList) {
-        this.agendaexaColetaList = agendaexaColetaList;
-    }
-
-    public Internacao getCodIntern() {
-        return codIntern;
-    }
-
-    public void setCodIntern(Internacao codIntern) {
-        this.codIntern = codIntern;
-    }
-
-    public Pacientes getCodPro() {
-        return codPro;
-    }
-
-    public void setCodPro(Pacientes codPro) {
-        this.codPro = codPro;
-    }
-
-    public Profissionais getCodProf() {
-        return codProf;
-    }
-
-    public void setCodProf(Profissionais codProf) {
-        this.codProf = codProf;
-    }
-
-    public UnidadeSolicitante getCodUnisolicitante() {
-        return codUnisolicitante;
-    }
-
-    public void setCodUnisolicitante(UnidadeSolicitante codUnisolicitante) {
-        this.codUnisolicitante = codUnisolicitante;
-    }
-
-    public Usuarios getCodUsuAgendo() {
-        return codUsuAgendo;
-    }
-
-    public void setCodUsuAgendo(Usuarios codUsuAgendo) {
-        this.codUsuAgendo = codUsuAgendo;
-    }
-
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//
+//    public void setNomeUni(String nomeUni) {
+//        this.nomeUni = nomeUni;
+//    }
+//
+//    @XmlTransient
+//    public List<AgendaexaColeta> getAgendaexaColetaList() {
+//        return agendaexaColetaList;
+//    }
+//
+//    public void setAgendaexaColetaList(List<AgendaexaColeta> agendaexaColetaList) {
+//        this.agendaexaColetaList = agendaexaColetaList;
+//    }
+//
+//    public Internacao getCodIntern() {
+//        return codIntern;
+//    }
+//
+//    public void setCodIntern(Internacao codIntern) {
+//        this.codIntern = codIntern;
+//    }
+//
+//    public Pacientes getCodPro() {
+//        return codPro;
+//    }
+//
+//    public void setCodPro(Pacientes codPro) {
+//        this.codPro = codPro;
+//    }
+//
+//    public Profissionais getCodProf() {
+//        return codProf;
+//    }
+//
+//    public void setCodProf(Profissionais codProf) {
+//        this.codProf = codProf;
+//    }
+//
+//    public UnidadeSolicitante getCodUnisolicitante() {
+//        return codUnisolicitante;
+//    }
+//
+//    public void setCodUnisolicitante(UnidadeSolicitante codUnisolicitante) {
+//        this.codUnisolicitante = codUnisolicitante;
+//    }
+//
+//    public Usuarios getCodUsuAgendo() {
+//        return codUsuAgendo;
+//    }
+//
+//    public void setCodUsuAgendo(Usuarios codUsuAgendo) {
+//        this.codUsuAgendo = codUsuAgendo;
+//    }
+//
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

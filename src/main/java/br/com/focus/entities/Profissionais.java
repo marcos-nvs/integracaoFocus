@@ -175,8 +175,8 @@ public class Profissionais implements Serializable {
     private List<Internacao> internacaoList2;
     @OneToMany(mappedBy = "codProfAlta", fetch = FetchType.EAGER)
     private List<Internacao> internacaoList3;
-    @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
-    private List<AgendaexaMaster> agendaexaMasterList;
+//    @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
+//    private List<AgendaexaMaster> agendaexaMasterList;
     @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
     private List<Agendaexa> agendaexaList;
 
@@ -560,23 +560,23 @@ public class Profissionais implements Serializable {
         this.internacaoList3 = internacaoList3;
     }
 
-    @XmlTransient
-    public List<AgendaexaMaster> getAgendaexaMasterList() {
-        return agendaexaMasterList;
-    }
+//    @XmlTransient
+//    public List<AgendaexaMaster> getAgendaexaMasterList() {
+//        return agendaexaMasterList;
+//    }
+//
+//    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
+//        this.agendaexaMasterList = agendaexaMasterList;
+//    }
 
-    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
-        this.agendaexaMasterList = agendaexaMasterList;
-    }
-
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

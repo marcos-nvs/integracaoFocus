@@ -45,10 +45,10 @@ public class UnidadeSolicitante implements Serializable {
     private String nome;
     @Column(name = "RESPONSAVEL")
     private String responsavel;
-    @OneToMany(mappedBy = "codUnisolicitante", fetch = FetchType.EAGER)
-    private List<AgendaexaMaster> agendaexaMasterList;
-    @OneToMany(mappedBy = "codUnisolicitante", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codUnisolicitante", fetch = FetchType.EAGER)
+//    private List<AgendaexaMaster> agendaexaMasterList;
+//    @OneToMany(mappedBy = "codUnisolicitante", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public UnidadeSolicitante() {
     }
@@ -89,23 +89,23 @@ public class UnidadeSolicitante implements Serializable {
         this.responsavel = responsavel;
     }
 
-    @XmlTransient
-    public List<AgendaexaMaster> getAgendaexaMasterList() {
-        return agendaexaMasterList;
-    }
+//    @XmlTransient
+//    public List<AgendaexaMaster> getAgendaexaMasterList() {
+//        return agendaexaMasterList;
+//    }
+//
+//    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
+//        this.agendaexaMasterList = agendaexaMasterList;
+//    }
 
-    public void setAgendaexaMasterList(List<AgendaexaMaster> agendaexaMasterList) {
-        this.agendaexaMasterList = agendaexaMasterList;
-    }
-
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

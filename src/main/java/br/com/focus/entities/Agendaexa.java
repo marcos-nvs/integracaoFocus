@@ -162,9 +162,9 @@ public class Agendaexa implements Serializable {
     @JoinColumn(name = "COD_AGEEXA_COLETA", referencedColumnName = "COD_AGEEXA_COLETA")
     @ManyToOne(fetch = FetchType.EAGER)
     private AgendaexaColeta codAgeexaColeta;
-    @JoinColumn(name = "COD_AGENDAEXA_MASTER", referencedColumnName = "COD_AGENDAEXA_MASTER")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private AgendaexaMaster codAgendaexaMaster;
+//    @JoinColumn(name = "COD_AGENDAEXA_MASTER", referencedColumnName = "COD_AGENDAEXA_MASTER")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private AgendaexaMaster codAgendaexaMaster;
     @JoinColumn(name = "COD_BPAITEN", referencedColumnName = "COD_BPAITEN")
     @ManyToOne(fetch = FetchType.EAGER)
     private Bpaitens codBpaiten;
@@ -521,13 +521,13 @@ public class Agendaexa implements Serializable {
         this.codAgeexaColeta = codAgeexaColeta;
     }
 
-    public AgendaexaMaster getCodAgendaexaMaster() {
-        return codAgendaexaMaster;
-    }
-
-    public void setCodAgendaexaMaster(AgendaexaMaster codAgendaexaMaster) {
-        this.codAgendaexaMaster = codAgendaexaMaster;
-    }
+//    public AgendaexaMaster getCodAgendaexaMaster() {
+//        return codAgendaexaMaster;
+//    }
+//
+//    public void setCodAgendaexaMaster(AgendaexaMaster codAgendaexaMaster) {
+//        this.codAgendaexaMaster = codAgendaexaMaster;
+//    }
 
     public Bpaitens getCodBpaiten() {
         return codBpaiten;
