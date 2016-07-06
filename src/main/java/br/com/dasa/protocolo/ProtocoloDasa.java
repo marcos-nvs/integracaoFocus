@@ -60,14 +60,11 @@ public class ProtocoloDasa implements Serializable {
 
                 String xml = montaXml(solicitacao);
 
+                TelaIntegracao.incluiMensagem("Enviando a solicitação : " + solicitacao.getCodPedido() + " do(a) Paciente : " 
+                        + solicitacao.getPaciente().getNome());
                 String retorno = envioXmlDasa(xml);
 
-                if (retorno != null) {
-                    resultadoIntegracao(solicitacao, retorno);
-                }
-
-                //Tratar o retorno
-                //Marcar como enviado
+                resultadoIntegracao(solicitacao, retorno);
             }
             mapSolicitacaoExame.clear();
 //
@@ -146,9 +143,9 @@ public class ProtocoloDasa implements Serializable {
             return portLoteExamesXmlReceiver.solicitacaoExames(xml);
         } catch (Exception xcp) {
             TelaIntegracao.incluiMensagem("Ocorreu um problema no envio da integração : " + xcp.getMessage());
+            return null;
         }
 
-        return null;
     }
 
     private void resultadoIntegracao(Solicitacao solicitacao, String retorno) {
@@ -161,9 +158,24 @@ public class ProtocoloDasa implements Serializable {
 
         if (listaAgendaexaMaster != null && !listaAgendaexaMaster.isEmpty()) {
             for (AgendaexaMaster agendaexaMaster : listaAgendaexaMaster) {
-                System.out.println("Solicitacao sucess : " + agendaexaMaster.getCodAgendaexaMaster());
-            }
 
+                if (retornoIntegracao.getSTATUS().equals("SUCESS")) {
+                    TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
+                    
+                    if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()){
+                        
+                    }
+
+                    
+                    TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
+                    
+                } else {
+                    TelaIntegracao.incluiMensagem("Solicitação enviada e retornou com falhas!!!");
+                    TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
+                }
+            }
+        } else {
+            TelaIntegracao.incluiMensagem("Problemas em marcar a solicitação enviada");
         }
     }
 
