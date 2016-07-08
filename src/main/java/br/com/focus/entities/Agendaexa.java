@@ -156,6 +156,10 @@ public class Agendaexa implements Serializable {
     private String enviadoLab;
     @Column(name = "RETORNO_LAB_ERRO")
     private String retornoLabErro;
+
+
+
+
     @JoinColumn(name = "COD_EQUIPAMENTO", referencedColumnName = "COD_EQUIPAMENTO")
     @ManyToOne(fetch = FetchType.EAGER)
     private EquipamentoExa codEquipamento;

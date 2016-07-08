@@ -4,6 +4,7 @@
  */
 package br.com.ln.hibernate.utils;
 
+import br.com.focus.entities.Agendaexa;
 import br.com.focus.entities.AgendaexaMaster;
 import br.com.focus.objetos.Laboratorio;
 import java.text.SimpleDateFormat;
@@ -131,5 +132,35 @@ public class SessionHelper {
         }
         
         return listaAgendaMaster;
+    }
+
+    public static Agendaexa getAgendaExa(Integer pedido, Integer exame) {
+        
+        Session session =  null;
+        Transaction tx;
+        Agendaexa agendaExa = null;
+        
+        try{
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx = session.beginTransaction();
+            
+            Query query = session.createSQLQuery("select * from agendaexa where cod_age_exa = :codAgeExa and cod_sub_exa = :codSubExa");
+            query.setInteger("codAgeExa", pedido);
+            query.setInteger("codSubExa", exame);
+            
+            List list = query.list();
+            tx.commit();
+            
+            if (list != null && !list.isEmpty()){
+                agendaExa = (Agendaexa) list.get(0);
+            }
+            
+        }finally{
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        
+        return agendaExa;
     }
 }

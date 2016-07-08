@@ -13,7 +13,7 @@ public class StaticQuery {
 
     public static String cientificalab
             = "SELECT AM.COD_AGENDAEXA_MASTER, \n"
-            + "       AM.DATA_EXA,             \n"
+            + "       AM.DATA_HORA_COLETA,     \n"
             + "       AM.PESO_PAC,             \n"
             + "       AM.ALTURA_PAC,           \n"
             + "       AM.DUM,                  \n"
@@ -65,8 +65,8 @@ public class StaticQuery {
             + "  LEFT JOIN FOCUS.DBO.W_PACIENTES WP ON AE.COD_PRO = WP.COD_PRO \n"
             + "  LEFT JOIN SAUDE.DBO.PROFISSIONAIS P ON AE.COD_PROF = P.COD_PROF   \n"
             + "  LEFT JOIN SAUDE.DBO.CAD_EXAME CE ON AE.COD_SUB_EXA = CE.COD_EXAME   \n"
-            + "WHERE AE.ENVIADO_LAB IS NULL \n"
+            + "WHERE (AE.ENVIADO_LAB IS NULL OR AE.ENVIADO_LAB = 'N') \n"
             + "  AND AE.STATUS = 'A' \n"
             + "  AND AE.COD_LAB = :codLab \n"
-            + "  and am.cod_agendaexa_master in (6,7)";
+            + "  and am.cod_agendaexa_master in (60002,60003)";
 }

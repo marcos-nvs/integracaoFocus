@@ -38,7 +38,7 @@ public class ProtocoloDasaDao implements Serializable {
                 solicitacao.setTest(TelaIntegracao.configClient.getTeste());
 
                 solicitacao.setCodPedido(((Integer) tupla[0]).toString());
-                solicitacao.setDataCadastro(DateManipulador.formatDateToPattern("dd/MM/yyyy", (Date) tupla[1]));
+                solicitacao.setDataCadastro(DateManipulador.formatDateToPattern("dd/MM/yyyy HH:mm:ss", (Date) tupla[1]));
                 solicitacao.setPeso((String) tupla[2]);
                 solicitacao.setAltura((String) tupla[3]);
                 solicitacao.setDum((String) tupla[4]);

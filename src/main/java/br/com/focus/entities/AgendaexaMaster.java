@@ -207,6 +207,10 @@ public class AgendaexaMaster implements Serializable {
     private String ufPac;
     @Column(name = "NOME_UNI")
     private String nomeUni;
+    @Column(name = "RETORNO_LAB")
+    private String retornoLab;
+    
+    
 //    @OneToMany(mappedBy = "codAgendaexaMaster", fetch = FetchType.EAGER)
 //    private List<AgendaexaColeta> agendaexaColetaList;
 //    @JoinColumn(name = "COD_INTERN", referencedColumnName = "COD_INTERN")
@@ -661,6 +665,16 @@ public class AgendaexaMaster implements Serializable {
     public String getNomeUni() {
         return nomeUni;
     }
+
+    public String getRetornoLab() {
+        return retornoLab;
+    }
+
+    public void setRetornoLab(String retornoLab) {
+        this.retornoLab = retornoLab;
+    }
+    
+    
 //
 //    public void setNomeUni(String nomeUni) {
 //        this.nomeUni = nomeUni;

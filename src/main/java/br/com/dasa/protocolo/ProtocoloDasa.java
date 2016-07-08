@@ -62,6 +62,9 @@ public class ProtocoloDasa implements Serializable {
 
                 TelaIntegracao.incluiMensagem("Enviando a solicitação : " + solicitacao.getCodPedido() + " do(a) Paciente : " 
                         + solicitacao.getPaciente().getNome());
+
+                System.out.println("XML : " + xml);
+
                 String retorno = envioXmlDasa(xml);
 
                 resultadoIntegracao(solicitacao, retorno);
@@ -163,10 +166,20 @@ public class ProtocoloDasa implements Serializable {
                     TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
                     
                     if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()){
-                        
+//                        for (RetornoExames retornoExame : retornoIntegracao.getLISTA_EXAMES()){
+//                            Agendaexa agendaExa = SessionHelper.getAgendaExa(solicitacao.getListaExames().);
+//                        }
+                    }
+                    if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()){
+                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    }
+                    if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()){
+                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    }
+                    if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()){
+                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
                     }
 
-                    
                     TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
                     
                 } else {
