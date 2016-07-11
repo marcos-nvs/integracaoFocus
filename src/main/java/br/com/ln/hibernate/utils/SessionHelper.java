@@ -164,7 +164,32 @@ public class SessionHelper {
         return agendaExa;
     }
 
-    public static void saveOrUpdateObject(Object obj, String strDbName) {
+    public static List<Agendaexa> getListAgendaExa(Integer pedido) {
+
+        Session session = null;
+        Transaction tx;
+        List<Agendaexa> listaAgendaExa = null;
+
+        try {
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx = session.beginTransaction();
+
+            Query query = session.createSQLQuery("select * from agendaexa where cod_age_exa = :codAgeExa");
+            query.setInteger("codAgeExa", pedido);
+
+            listaAgendaExa = query.list();
+            tx.commit();
+
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return listaAgendaExa;
+    }
+
+    public static void saveOrUpdateObject(Object obj) {
         Session session = null;
         Transaction tx;
         try {
@@ -180,7 +205,7 @@ public class SessionHelper {
 
     }
 
-    public static void saveObject(Object obj, String strDbName) {
+    public static void saveObject(Object obj) {
         Session session = null;
         try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();

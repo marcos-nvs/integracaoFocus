@@ -14,7 +14,6 @@ import br.com.wservice.LoteExamesXmlReceiver;
 import br.com.wservice.LoteExamesXmlReceiver_Service;
 import com.thoughtworks.xstream.XStream;
 import java.io.Serializable;
-import java.net.ConnectException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -170,20 +169,31 @@ public class ProtocoloDasa implements Serializable {
                 if (retornoIntegracao.getSTATUS().equals("SUCESS")) {
                     TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
 
-                    if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()) {
-//                        for (RetornoExames retornoExame : retornoIntegracao.getLISTA_EXAMES()){
-//                            Agendaexa agendaExa = SessionHelper.getAgendaExa(solicitacao.getListaExames().);
-//                        }
+                    List<Agendaexa> listaAgendaExa = SessionHelper.getListAgendaExa(agendaexaMaster.getCodAgendaexaMaster());
+
+                    if (listaAgendaExa != null && !listaAgendaExa.isEmpty()) {
+
+                        for (Agendaexa agendaexa : listaAgendaExa) {
+                            if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()) {
+                                //TODO montar uma forma de tratar os exames.
+                            } else {
+                                agendaexa.setEnviadoLab("S");
+                                agendaexa.setRetornoLabErro(retornoIntegracao.getMSG());
+                            }
+                        }
                     }
+
                     if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()) {
                         agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
-//                        SessionHelper.save(agendaMaster);
+                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
                     }
                     if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()) {
                         agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
                     }
                     if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()) {
                         agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
                     }
 
                     TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
