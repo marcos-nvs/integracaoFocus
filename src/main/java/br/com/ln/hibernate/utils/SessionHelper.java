@@ -42,7 +42,7 @@ public class SessionHelper {
 
                 for (Object obj : list) {
                     Object[] tupla = (Object[]) obj;
-                    
+
                     laboratorio = new Laboratorio();
 
                     laboratorio.setCodLab((Integer) tupla[0]);
@@ -58,109 +58,139 @@ public class SessionHelper {
         }
         return laboratorio;
     }
-    
-    public static Date getDateDbSqlServer(){
-        
+
+    public static Date getDateDbSqlServer() {
+
         Session session = null;
         Transaction tx;
-        
+
         Date dataDb = null;
-        
-        try{
+
+        try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
-            tx =session.beginTransaction();
-            
+            tx = session.beginTransaction();
+
             Query query = session.createSQLQuery("select GETDATE()");
             List list = query.list();
-            
-            if (list != null && !list.isEmpty()){
+
+            if (list != null && !list.isEmpty()) {
                 dataDb = (Date) list.get(0);
             }
-        }finally{
-            if (session != null && session.isOpen()){
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
         return dataDb;
     }
-    
-    public static List<Object> getInformacaoLab(Integer codLab){
-        
+
+    public static List<Object> getInformacaoLab(Integer codLab) {
+
         Session session = null;
         Transaction tx;
         List<Object> listObj = null;
-        
-        try{
+
+        try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
-            
+
             Query query = session.createSQLQuery(StaticQuery.cientificalab);
             query.setInteger("codLab", codLab);
-            
+
             listObj = query.list();
             tx.commit();
-            
-        }finally {
-            if (session != null && session.isOpen()){
+
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
-        
+
         return listObj;
     }
 
     public static List<AgendaexaMaster> getAgendaExaMaster(Integer codPedido) {
-        
+
         Session session = null;
         Transaction tx;
         List<AgendaexaMaster> listaAgendaMaster;
-        
-        try{
+
+        try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
-            
+
             Query query = session.getNamedQuery("AgendaexaMaster.findByCodAgendaexaMaster");
             query.setInteger("codAgendaexaMaster", codPedido);
-            
+
             listaAgendaMaster = query.list();
             tx.commit();
-            
+
         } finally {
-            if (session != null && session.isOpen()){
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
-        
+
         return listaAgendaMaster;
     }
 
     public static Agendaexa getAgendaExa(Integer pedido, Integer exame) {
-        
-        Session session =  null;
+
+        Session session = null;
         Transaction tx;
         Agendaexa agendaExa = null;
-        
-        try{
+
+        try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
-            
+
             Query query = session.createSQLQuery("select * from agendaexa where cod_age_exa = :codAgeExa and cod_sub_exa = :codSubExa");
             query.setInteger("codAgeExa", pedido);
             query.setInteger("codSubExa", exame);
-            
+
             List list = query.list();
             tx.commit();
-            
-            if (list != null && !list.isEmpty()){
+
+            if (list != null && !list.isEmpty()) {
                 agendaExa = (Agendaexa) list.get(0);
             }
-            
-        }finally{
-            if (session != null && session.isOpen()){
+
+        } finally {
+            if (session != null && session.isOpen()) {
                 session.close();
             }
         }
-        
+
         return agendaExa;
+    }
+
+    public static void saveOrUpdateObject(Object obj, String strDbName) {
+        Session session = null;
+        Transaction tx;
+        try {
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx = session.beginTransaction();
+            session.saveOrUpdate(obj);
+            tx.commit();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+    }
+
+    public static void saveObject(Object obj, String strDbName) {
+        Session session = null;
+        try {
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            Transaction tx = session.beginTransaction();
+            session.save(obj);
+            tx.commit();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 }

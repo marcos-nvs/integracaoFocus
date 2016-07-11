@@ -1,0 +1,369 @@
+2016-07-11 13:14:08.817 - Integração iniciada!!!
+2016-07-11 13:14:09.11 - Laboratorio : CIENTIFICALAB
+2016-07-11 13:14:09.3 - Quantidade de informações - 20
+2016-07-11 13:14:09.337 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 13:14:12.47 - Ocorreu um problema no envio da integração : Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect
+2016-07-11 13:14:41.39 - Parando o processo de integração
+2016-07-11 14:41:18.5 - Integração iniciada!!!
+2016-07-11 14:41:18.863 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:41:18.98 - Quantidade de informações - 20
+2016-07-11 14:41:19.013 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:41:20.36 - Ocorreu um problema no envio da integração : Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect
+2016-07-11 14:42:15.443 - Parando o processo de integração
+2016-07-11 14:43:41.7 - Integração iniciada!!!
+2016-07-11 14:43:41.923 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:43:42.193 - Quantidade de informações - 20
+2016-07-11 14:43:42.23 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:43:43.66 - Ocorreu um problema no envio da integração : Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect
+2016-07-11 14:44:54.04 - Parando o processo de integração
+2016-07-11 14:45:11.37 - Integração iniciada!!!
+2016-07-11 14:45:12.11 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:45:12.3 - Quantidade de informações - 20
+2016-07-11 14:45:12.333 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:45:41.04 - Ocorreu um problema no envio da integração : Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect
+2016-07-11 14:46:13.483 - Parando o processo de integração
+2016-07-11 14:47:40.72 - Integração iniciada!!!
+2016-07-11 14:47:40.887 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:47:41.02 - Quantidade de informações - 20
+2016-07-11 14:47:41.063 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:47:41.593 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 14:47:41.593 - lista de exames vazia.
+2016-07-11 14:47:41.6 - Enviando a solicitação : 60002 do(a) Paciente : JAIR VIQUIETINI
+2016-07-11 14:47:41.713 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 14:47:41.717 - lista de exames vazia.
+2016-07-11 14:48:01.753 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:48:01.863 - Quantidade de informações - 20
+2016-07-11 14:48:01.88 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:48:02.033 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 14:48:02.04 - lista de exames vazia.
+2016-07-11 14:48:02.06 - Enviando a solicitação : 60002 do(a) Paciente : JAIR VIQUIETINI
+2016-07-11 14:48:02.21 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 14:48:02.21 - lista de exames vazia.
+2016-07-11 14:48:05.183 - Parando o processo de integração
+2016-07-11 14:49:18.94 - Integração iniciada!!!
+2016-07-11 14:49:19.17 - Laboratorio : CIENTIFICALAB
+2016-07-11 14:49:19.31 - Quantidade de informações - 20
+2016-07-11 14:49:19.34 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 14:49:20.603 - Ocorreu um problema no envio da integração : Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect
+2016-07-11 15:01:19.167 - Parando o processo de integração
+2016-07-11 15:01:19.877 - Integração iniciada!!!
+2016-07-11 15:01:20.57 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:01:20.673 - Quantidade de informações - 20
+2016-07-11 15:01:20.7 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:01:22.357 - Não foi possível se conectar com o destino. Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:01:37.577 - Parando o processo de integração
+2016-07-11 15:02:33.563 - Integração iniciada!!!
+2016-07-11 15:02:33.72 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:02:33.793 - Quantidade de informações - 20
+2016-07-11 15:02:33.823 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:02:35.043 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:03:49.773 - Parando o processo de integração
+2016-07-11 15:13:00.06 - Integração iniciada!!!
+2016-07-11 15:13:00.5 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:13:00.753 - Quantidade de informações - 20
+2016-07-11 15:13:00.79 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:15:24.11 - Parando o processo de integração
+2016-07-11 15:16:34.917 - Integração iniciada!!!
+2016-07-11 15:16:35.06 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:16:35.15 - Quantidade de informações - 20
+2016-07-11 15:16:35.17 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:16:35.58 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:16:35.583 - lista de exames vazia.
+2016-07-11 15:16:35.59 - Enviando a solicitação : 60002 do(a) Paciente : JAIR VIQUIETINI
+2016-07-11 15:16:35.72 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:16:35.723 - lista de exames vazia.
+2016-07-11 15:16:56.38 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:16:56.47 - Quantidade de informações - 20
+2016-07-11 15:16:56.483 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:17:01.447 - Parando o processo de integração
+2016-07-11 15:28:26.903 - Integração iniciada!!!
+2016-07-11 15:28:27.12 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:28:27.263 - Quantidade de informações - 20
+2016-07-11 15:28:27.31 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:28:28.24 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:28:28.24 - lista de exames vazia.
+2016-07-11 15:28:28.247 - Enviando a solicitação : 60002 do(a) Paciente : JAIR VIQUIETINI
+2016-07-11 15:28:28.397 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:28:28.403 - lista de exames vazia.
+2016-07-11 15:28:46.227 - Parando o processo de integração
+2016-07-11 15:28:59.213 - Integração iniciada!!!
+2016-07-11 15:28:59.81 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:28:59.88 - Quantidade de informações - 20
+2016-07-11 15:28:59.903 - Enviando a solicitação : 60003 do(a) Paciente : GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:29:20.713 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:29:20.713 - lista de exames vazia.
+2016-07-11 15:29:20.727 - Enviando a solicitação : 60002 do(a) Paciente : JAIR VIQUIETINI
+2016-07-11 15:29:27.637 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:29:27.643 - lista de exames vazia.
+2016-07-11 15:29:38.533 - Parando o processo de integração
+2016-07-11 15:30:14.787 - Integração iniciada!!!
+2016-07-11 15:30:14.937 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:30:15.07 - Quantidade de informações - 20
+2016-07-11 15:30:15.13 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:30:15.513 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:30:15.517 - lista de exames vazia.
+2016-07-11 15:30:15.523 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:30:15.657 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:30:15.663 - lista de exames vazia.
+2016-07-11 15:30:35.68 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:30:35.773 - Quantidade de informações - 20
+2016-07-11 15:30:35.793 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:30:35.92 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:30:35.923 - lista de exames vazia.
+2016-07-11 15:30:35.927 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:30:36.037 - Solicitação enviada e retornou com falhas!!!
+2016-07-11 15:30:36.04 - lista de exames vazia.
+2016-07-11 15:30:57.433 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:30:57.52 - Quantidade de informações - 20
+2016-07-11 15:30:57.527 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:31:01.76 - Parando o processo de integração
+2016-07-11 15:32:07.143 - Integração iniciada!!!
+2016-07-11 15:32:07.32 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:32:07.4 - Quantidade de informações - 20
+2016-07-11 15:32:07.43 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:32:07.817 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:32:07.82 - lista de exames vazia.
+2016-07-11 15:32:07.83 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:32:07.957 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:32:07.96 - lista de exames vazia.
+2016-07-11 15:32:11.717 - Parando o processo de integração
+2016-07-11 15:32:36.59 - Integração iniciada!!!
+2016-07-11 15:32:36.74 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:32:36.833 - Quantidade de informações - 20
+2016-07-11 15:32:36.867 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:32:37.7 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:32:37.7 - lista de exames vazia.
+2016-07-11 15:32:37.707 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:32:37.827 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:32:37.83 - lista de exames vazia.
+2016-07-11 15:32:44.483 - Parando o processo de integração
+2016-07-11 15:33:29.28 - Integração iniciada!!!
+2016-07-11 15:33:29.45 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:33:29.537 - Quantidade de informações - 20
+2016-07-11 15:33:29.567 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:33:29.96 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:33:29.99 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:33:30.12 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:33:50.147 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:33:50.24 - Quantidade de informações - 20
+2016-07-11 15:33:50.253 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:33:50.393 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:33:50.4 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:33:50.53 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:34:04.4 - Parando o processo de integração
+2016-07-11 15:35:25.657 - Integração iniciada!!!
+2016-07-11 15:35:26.673 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:35:26.767 - Quantidade de informações - 20
+2016-07-11 15:35:26.8 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:35:28.043 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:35:28.067 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:35:29.113 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:35:49.137 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:35:49.22 - Quantidade de informações - 20
+2016-07-11 15:35:49.233 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:35:50.27 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:35:50.29 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:35:51.33 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:11.35 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:36:11.437 - Quantidade de informações - 20
+2016-07-11 15:36:11.45 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:36:12.473 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:12.48 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:36:13.51 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:33.527 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:36:33.603 - Quantidade de informações - 20
+2016-07-11 15:36:33.61 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:36:34.633 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:34.653 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:36:35.683 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:55.773 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:36:55.873 - Quantidade de informações - 20
+2016-07-11 15:36:55.893 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:36:56.913 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:36:56.93 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:36:57.963 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:37:18.033 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:37:18.123 - Quantidade de informações - 20
+2016-07-11 15:37:18.133 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:37:19.16 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:37:19.173 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:37:20.21 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:37:40.237 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:37:40.333 - Quantidade de informações - 20
+2016-07-11 15:37:40.347 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:37:41.38 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:37:41.383 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:37:42.42 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:02.437 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:38:02.53 - Quantidade de informações - 20
+2016-07-11 15:38:02.55 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:38:03.59 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:03.607 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:38:04.647 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:24.66 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:38:24.74 - Quantidade de informações - 20
+2016-07-11 15:38:24.747 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:38:25.78 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:25.79 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:38:26.837 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:46.843 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:38:46.92 - Quantidade de informações - 20
+2016-07-11 15:38:46.93 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:38:47.963 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:38:47.97 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:38:48.993 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:09.96 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:39:10.027 - Quantidade de informações - 20
+2016-07-11 15:39:10.033 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:39:11.057 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:11.06 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:39:12.077 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:32.09 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:39:32.183 - Quantidade de informações - 20
+2016-07-11 15:39:32.223 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:39:33.25 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:33.253 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:39:34.29 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:54.297 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:39:54.387 - Quantidade de informações - 20
+2016-07-11 15:39:54.393 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:39:55.43 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:39:55.437 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:39:56.46 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:40:16.467 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:40:16.553 - Quantidade de informações - 20
+2016-07-11 15:40:16.563 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:40:17.613 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:40:17.623 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:40:18.683 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:40:38.703 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:40:38.79 - Quantidade de informações - 20
+2016-07-11 15:40:38.797 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:40:39.82 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:40:39.827 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:40:40.86 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:01.5 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:41:01.59 - Quantidade de informações - 20
+2016-07-11 15:41:01.593 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:41:02.617 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:02.627 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:41:03.667 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:25.26 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:41:25.357 - Quantidade de informações - 20
+2016-07-11 15:41:25.36 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:41:26.37 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:26.37 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:41:27.38 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:47.38 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:41:47.453 - Quantidade de informações - 20
+2016-07-11 15:41:47.457 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:41:48.48 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:48.483 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:41:49.5 - Não foi possível se conectar com o destino. 
+ Verificar a conexão da internet ou contactar o destino
+2016-07-11 15:41:55.767 - Parando o processo de integração
+2016-07-11 15:42:59.437 - Integração iniciada!!!
+2016-07-11 15:42:59.61 - Laboratorio : CIENTIFICALAB
+2016-07-11 15:42:59.703 - Quantidade de informações - 20
+2016-07-11 15:42:59.757 - Enviando a solicitação : 60003 do(a) Paciente : 
+ GERCIMA FATIMA GAMA DALMAZO
+2016-07-11 15:43:21.313 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:43:21.32 - Enviando a solicitação : 60002 do(a) Paciente : 
+ JAIR VIQUIETINI
+2016-07-11 15:43:26.507 - Solicitação enviada e retornou com falhas!!! 
+ Lista vazia ou exames não encontrado no destino (DEPARA)
+2016-07-11 15:43:28.557 - Parando o processo de integração

@@ -31,7 +31,7 @@ public class TelaIntegracao {
             taMensagem.append(SessionHelper.getDateDbSqlServer() + " - " + mensagem + "\n");
         }
         
-        if (taMensagem.getLineCount() >= 10) {
+        if (taMensagem.getLineCount() >= 50) {
             CriaArquivo.gravaLog();
             taMensagem.setText("");
         }

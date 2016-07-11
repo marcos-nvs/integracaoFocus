@@ -14,6 +14,7 @@ import br.com.wservice.LoteExamesXmlReceiver;
 import br.com.wservice.LoteExamesXmlReceiver_Service;
 import com.thoughtworks.xstream.XStream;
 import java.io.Serializable;
+import java.net.ConnectException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -60,14 +61,14 @@ public class ProtocoloDasa implements Serializable {
 
                 String xml = montaXml(solicitacao);
 
-                TelaIntegracao.incluiMensagem("Enviando a solicitação : " + solicitacao.getCodPedido() + " do(a) Paciente : " 
+                TelaIntegracao.incluiMensagem("Enviando a solicitação : " + solicitacao.getCodPedido() + " do(a) Paciente : \n "
                         + solicitacao.getPaciente().getNome());
-
-                System.out.println("XML : " + xml);
 
                 String retorno = envioXmlDasa(xml);
 
-                resultadoIntegracao(solicitacao, retorno);
+                if (retorno != null) {
+                    resultadoIntegracao(solicitacao, retorno);
+                }
             }
             mapSolicitacaoExame.clear();
 //
@@ -145,10 +146,14 @@ public class ProtocoloDasa implements Serializable {
 
             return portLoteExamesXmlReceiver.solicitacaoExames(xml);
         } catch (Exception xcp) {
-            TelaIntegracao.incluiMensagem("Ocorreu um problema no envio da integração : " + xcp.getMessage());
+
+            if (xcp.getMessage().contains("Erro de transporte HTTP: java.net.ConnectException: Connection refused: connect")) {
+                TelaIntegracao.incluiMensagem("Não foi possível se conectar com o destino. \n" + " Verificar a conexão da internet ou contactar o destino");
+            } else {
+                TelaIntegracao.incluiMensagem("Ocorreu um problema no envio da integração : " + xcp.getMessage());
+            }
             return null;
         }
-
     }
 
     private void resultadoIntegracao(Solicitacao solicitacao, String retorno) {
@@ -164,27 +169,27 @@ public class ProtocoloDasa implements Serializable {
 
                 if (retornoIntegracao.getSTATUS().equals("SUCESS")) {
                     TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
-                    
-                    if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()){
+
+                    if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()) {
 //                        for (RetornoExames retornoExame : retornoIntegracao.getLISTA_EXAMES()){
 //                            Agendaexa agendaExa = SessionHelper.getAgendaExa(solicitacao.getListaExames().);
 //                        }
                     }
-                    if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()){
+                    if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()) {
+                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+//                        SessionHelper.save(agendaMaster);
+                    }
+                    if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()) {
                         agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
                     }
-                    if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()){
-                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
-                    }
-                    if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()){
+                    if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()) {
                         agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
                     }
 
                     TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
-                    
+
                 } else {
-                    TelaIntegracao.incluiMensagem("Solicitação enviada e retornou com falhas!!!");
-                    TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
+                    TelaIntegracao.incluiMensagem("Solicitação enviada e retornou com falhas!!! \n " + "Lista vazia ou exames não encontrado no destino (DEPARA)");
                 }
             }
         } else {
