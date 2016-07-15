@@ -166,7 +166,7 @@ public class ProtocoloDasa implements Serializable {
         if (listaAgendaexaMaster != null && !listaAgendaexaMaster.isEmpty()) {
             for (AgendaexaMaster agendaexaMaster : listaAgendaexaMaster) {
 
-                if (retornoIntegracao.getSTATUS().equals("SUCESS")) {
+                if (retornoIntegracao.getSTATUS().equals("SUCCESS")) {
                     TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
 
                     List<Agendaexa> listaAgendaExa = SessionHelper.getListAgendaExa(agendaexaMaster.getCodAgendaexaMaster());
@@ -213,7 +213,7 @@ public class ProtocoloDasa implements Serializable {
 
         xstream.alias("br.com.wservice.XmlRetorno", RetornoIntegracao.class);
         xstream.aliasField("requisicaoIntegracao", RetornoIntegracao.class, "br.com.wservice.XmlRetorno");
-        xstream.aliasField("listaExames", RetornoExames.class, "LISTA_EXAMES");
+        xstream.aliasField("listaExames", RetornoExames.class, "xmlExDados");
 
         return (RetornoIntegracao) xstream.fromXML(retorno);
     }

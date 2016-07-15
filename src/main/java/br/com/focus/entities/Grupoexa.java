@@ -39,8 +39,8 @@ public class Grupoexa implements Serializable {
     private Integer codExa;
     @Column(name = "DESCRICAO")
     private String descricao;
-    @OneToMany(mappedBy = "codExa", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codExa", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Grupoexa() {
     }
@@ -65,14 +65,14 @@ public class Grupoexa implements Serializable {
         this.descricao = descricao;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

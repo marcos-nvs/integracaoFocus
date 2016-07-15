@@ -69,5 +69,6 @@ public class StaticQuery {
             + "WHERE (AE.ENVIADO_LAB IS NULL OR AE.ENVIADO_LAB = 'N') \n"
             + "  AND AE.STATUS = 'A' \n"
             + "  AND AE.COD_LAB = :codLab \n"
-            + "  and am.cod_agendaexa_master in (60002,60003)";
+            + "  AND AE.COD_SUB_EXA = '173' \n"
+            + "  and am.cod_agendaexa_master in (63373)";
 }

@@ -48,8 +48,8 @@ public class Coletaexa implements Serializable {
     private String endereco;
     @Column(name = "RESPONSAVEL")
     private String responsavel;
-    @OneToMany(mappedBy = "codCol", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codCol", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Coletaexa() {
     }
@@ -98,14 +98,14 @@ public class Coletaexa implements Serializable {
         this.responsavel = responsavel;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

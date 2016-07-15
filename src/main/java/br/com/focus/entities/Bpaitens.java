@@ -159,8 +159,8 @@ public class Bpaitens implements Serializable {
     private Date dataAddfatura;
     @Column(name = "MAQ_ADDFATURA")
     private String maqAddfatura;
-    @OneToMany(mappedBy = "codBpaiten", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codBpaiten", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
     @JoinColumn(name = "COD_CBO", referencedColumnName = "COD_CBO")
     @ManyToOne(fetch = FetchType.EAGER)
     private CboUnif codCbo;
@@ -507,14 +507,14 @@ public class Bpaitens implements Serializable {
         this.maqAddfatura = maqAddfatura;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     public CboUnif getCodCbo() {
         return codCbo;

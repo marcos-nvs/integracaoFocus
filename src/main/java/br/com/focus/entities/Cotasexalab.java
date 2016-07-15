@@ -75,8 +75,8 @@ public class Cotasexalab implements Serializable {
     @JoinColumn(name = "COD_USU_USANDO", referencedColumnName = "COD_USU")
     @ManyToOne(fetch = FetchType.EAGER)
     private Usuarios codUsuUsando;
-    @OneToMany(mappedBy = "codCotasexalab", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codCotasexalab", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Cotasexalab() {
     }
@@ -182,14 +182,14 @@ public class Cotasexalab implements Serializable {
         this.codUsuUsando = codUsuUsando;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

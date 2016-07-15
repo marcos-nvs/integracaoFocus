@@ -105,8 +105,8 @@ public class Usuarios implements Serializable {
     private List<EsusIdentificacao> esusIdentificacaoList;
 //    @OneToMany(mappedBy = "codUsuAgendo", fetch = FetchType.EAGER)
 //    private List<AgendaexaMaster> agendaexaMasterList;
-    @OneToMany(mappedBy = "codUsu", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codUsu", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
     @OneToMany(mappedBy = "codUsuAddfatura", fetch = FetchType.EAGER)
     private List<Bpaitens> bpaitensList;
 
@@ -317,14 +317,14 @@ public class Usuarios implements Serializable {
 //        this.agendaexaMasterList = agendaexaMasterList;
 //    }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @XmlTransient
     public List<Bpaitens> getBpaitensList() {

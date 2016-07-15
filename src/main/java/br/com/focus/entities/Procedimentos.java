@@ -61,8 +61,8 @@ public class Procedimentos implements Serializable {
     @JoinColumn(name = "COD_GRU", referencedColumnName = "COD_GRU")
     @ManyToOne(fetch = FetchType.EAGER)
     private Grupoprocedi codGru;
-    @OneToMany(mappedBy = "codProced", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codProced", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Procedimentos() {
     }
@@ -140,14 +140,14 @@ public class Procedimentos implements Serializable {
         this.codGru = codGru;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

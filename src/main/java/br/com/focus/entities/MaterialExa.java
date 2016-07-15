@@ -45,8 +45,8 @@ public class MaterialExa implements Serializable {
     private String sigla;
     @ManyToMany(mappedBy = "materialExaList", fetch = FetchType.EAGER)
     private List<CadExame> cadExameList;
-    @OneToMany(mappedBy = "codMaterial", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codMaterial", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public MaterialExa() {
     }
@@ -88,14 +88,14 @@ public class MaterialExa implements Serializable {
         this.cadExameList = cadExameList;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {

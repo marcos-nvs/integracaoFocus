@@ -177,8 +177,8 @@ public class Profissionais implements Serializable {
     private List<Internacao> internacaoList3;
 //    @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
 //    private List<AgendaexaMaster> agendaexaMasterList;
-    @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codProf", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public Profissionais() {
     }

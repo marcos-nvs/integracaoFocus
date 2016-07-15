@@ -50,8 +50,8 @@ public class EquipamentoExa implements Serializable {
         @JoinColumn(name = "COD_EXAME", referencedColumnName = "COD_EXAME")})
     @ManyToMany(fetch = FetchType.EAGER)
     private List<CadExame> cadExameList;
-    @OneToMany(mappedBy = "codEquipamento", fetch = FetchType.EAGER)
-    private List<Agendaexa> agendaexaList;
+//    @OneToMany(mappedBy = "codEquipamento", fetch = FetchType.EAGER)
+//    private List<Agendaexa> agendaexaList;
 
     public EquipamentoExa() {
     }
@@ -93,14 +93,14 @@ public class EquipamentoExa implements Serializable {
         this.cadExameList = cadExameList;
     }
 
-    @XmlTransient
-    public List<Agendaexa> getAgendaexaList() {
-        return agendaexaList;
-    }
-
-    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
-        this.agendaexaList = agendaexaList;
-    }
+//    @XmlTransient
+//    public List<Agendaexa> getAgendaexaList() {
+//        return agendaexaList;
+//    }
+//
+//    public void setAgendaexaList(List<Agendaexa> agendaexaList) {
+//        this.agendaexaList = agendaexaList;
+//    }
 
     @Override
     public int hashCode() {
