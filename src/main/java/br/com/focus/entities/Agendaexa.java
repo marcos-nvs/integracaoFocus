@@ -10,11 +10,11 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -158,53 +158,53 @@ public class Agendaexa implements Serializable {
     private String retornoLabErro;
 
 
-
-
+//
+//
 //    @JoinColumn(name = "COD_EQUIPAMENTO", referencedColumnName = "COD_EQUIPAMENTO")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private EquipamentoExa codEquipamento;
+    private EquipamentoExa codEquipamento;
 //    @JoinColumn(name = "COD_AGEEXA_COLETA", referencedColumnName = "COD_AGEEXA_COLETA")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private AgendaexaColeta codAgeexaColeta;
+    private AgendaexaColeta codAgeexaColeta;
 //    @JoinColumn(name = "COD_AGENDAEXA_MASTER", referencedColumnName = "COD_AGENDAEXA_MASTER")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private AgendaexaMaster codAgendaexaMaster;
+    private AgendaexaMaster codAgendaexaMaster;
 //    @JoinColumn(name = "COD_BPAITEN", referencedColumnName = "COD_BPAITEN")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Bpaitens codBpaiten;
+    private Bpaitens codBpaiten;
 //    @JoinColumn(name = "COD_PROCED", referencedColumnName = "COD_PROCED")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Procedimentos codProced;
+    private Procedimentos codProced;
 //    @JoinColumn(name = "COD_COL", referencedColumnName = "COD_COL")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Coletaexa codCol;
+    private Coletaexa codCol;
 //    @JoinColumn(name = "COD_COTA_EXA_LAB_UNI", referencedColumnName = "COD_COTA_EXA_LAB_UNI")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private CotasExaLabUni codCotaExaLabUni;
+    private CotasExaLabUni codCotaExaLabUni;
 //    @JoinColumn(name = "COD_COTASEXALAB", referencedColumnName = "COD_COTASEXALAB")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Cotasexalab codCotasexalab;
+    private Cotasexalab codCotasexalab;
 //    @JoinColumn(name = "COD_EXA", referencedColumnName = "COD_EXA")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Grupoexa codExa;
+    private Grupoexa codExa;
 //    @JoinColumn(name = "COD_UNISOLICITANTE", referencedColumnName = "COD_UNISOLICITANTE")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private UnidadeSolicitante codUnisolicitante;
+    private UnidadeSolicitante codUnisolicitante;
 //    @JoinColumn(name = "COD_LAB", referencedColumnName = "COD_LAB")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Labexa codLab;
+    private Labexa codLab;
 //    @JoinColumn(name = "COD_PROF", referencedColumnName = "COD_PROF")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Profissionais codProf;
+    private Profissionais codProf;
 //    @JoinColumn(name = "COD_MATERIAL", referencedColumnName = "COD_MATERIAL")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private MaterialExa codMaterial;
+    private MaterialExa codMaterial;
 //    @JoinColumn(name = "COD_USU", referencedColumnName = "COD_USU")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Usuarios codUsu;
+    private Usuarios codUsu;
 //    @JoinColumn(name = "COD_PRO", referencedColumnName = "COD_PRO")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Pacientes codPro;
+    private Pacientes codPro;
 
     public Agendaexa() {
     }
@@ -509,125 +509,125 @@ public class Agendaexa implements Serializable {
         this.retornoLabErro = retornoLabErro;
     }
 
-//    public EquipamentoExa getCodEquipamento() {
-//        return codEquipamento;
-//    }
-//
-//    public void setCodEquipamento(EquipamentoExa codEquipamento) {
-//        this.codEquipamento = codEquipamento;
-//    }
-//
-//    public AgendaexaColeta getCodAgeexaColeta() {
-//        return codAgeexaColeta;
-//    }
-//
-//    public void setCodAgeexaColeta(AgendaexaColeta codAgeexaColeta) {
-//        this.codAgeexaColeta = codAgeexaColeta;
-//    }
+    public EquipamentoExa getCodEquipamento() {
+        return codEquipamento;
+    }
 
-//    public AgendaexaMaster getCodAgendaexaMaster() {
-//        return codAgendaexaMaster;
-//    }
-//
-//    public void setCodAgendaexaMaster(AgendaexaMaster codAgendaexaMaster) {
-//        this.codAgendaexaMaster = codAgendaexaMaster;
-//    }
+    public void setCodEquipamento(EquipamentoExa codEquipamento) {
+        this.codEquipamento = codEquipamento;
+    }
 
-//    public Bpaitens getCodBpaiten() {
-//        return codBpaiten;
-//    }
-//
-//    public void setCodBpaiten(Bpaitens codBpaiten) {
-//        this.codBpaiten = codBpaiten;
-//    }
-//
-//    public Procedimentos getCodProced() {
-//        return codProced;
-//    }
-//
-//    public void setCodProced(Procedimentos codProced) {
-//        this.codProced = codProced;
-//    }
-//
-//    public Coletaexa getCodCol() {
-//        return codCol;
-//    }
-//
-//    public void setCodCol(Coletaexa codCol) {
-//        this.codCol = codCol;
-//    }
-//
-//    public CotasExaLabUni getCodCotaExaLabUni() {
-//        return codCotaExaLabUni;
-//    }
-//
-//    public void setCodCotaExaLabUni(CotasExaLabUni codCotaExaLabUni) {
-//        this.codCotaExaLabUni = codCotaExaLabUni;
-//    }
-//
-//    public Cotasexalab getCodCotasexalab() {
-//        return codCotasexalab;
-//    }
-//
-//    public void setCodCotasexalab(Cotasexalab codCotasexalab) {
-//        this.codCotasexalab = codCotasexalab;
-//    }
-//
-//    public Grupoexa getCodExa() {
-//        return codExa;
-//    }
-//
-//    public void setCodExa(Grupoexa codExa) {
-//        this.codExa = codExa;
-//    }
-//
-//    public UnidadeSolicitante getCodUnisolicitante() {
-//        return codUnisolicitante;
-//    }
-//
-//    public void setCodUnisolicitante(UnidadeSolicitante codUnisolicitante) {
-//        this.codUnisolicitante = codUnisolicitante;
-//    }
-//
-//    public Labexa getCodLab() {
-//        return codLab;
-//    }
-//
-//    public void setCodLab(Labexa codLab) {
-//        this.codLab = codLab;
-//    }
-//
-//    public Profissionais getCodProf() {
-//        return codProf;
-//    }
-//
-//    public void setCodProf(Profissionais codProf) {
-//        this.codProf = codProf;
-//    }
-//
-//    public MaterialExa getCodMaterial() {
-//        return codMaterial;
-//    }
-//
-//    public void setCodMaterial(MaterialExa codMaterial) {
-//        this.codMaterial = codMaterial;
-//    }
-//
-//    public Usuarios getCodUsu() {
-//        return codUsu;
-//    }
-//
-//    public void setCodUsu(Usuarios codUsu) {
-//        this.codUsu = codUsu;
-//    }
-//
-//    public Pacientes getCodPro() {
-//        return codPro;
-//    }
-//
-//    public void setCodPro(Pacientes codPro) {
-//        this.codPro = codPro;
-//    }
+    public AgendaexaColeta getCodAgeexaColeta() {
+        return codAgeexaColeta;
+    }
+
+    public void setCodAgeexaColeta(AgendaexaColeta codAgeexaColeta) {
+        this.codAgeexaColeta = codAgeexaColeta;
+    }
+
+    public AgendaexaMaster getCodAgendaexaMaster() {
+        return codAgendaexaMaster;
+    }
+
+    public void setCodAgendaexaMaster(AgendaexaMaster codAgendaexaMaster) {
+        this.codAgendaexaMaster = codAgendaexaMaster;
+    }
+
+    public Bpaitens getCodBpaiten() {
+        return codBpaiten;
+    }
+
+    public void setCodBpaiten(Bpaitens codBpaiten) {
+        this.codBpaiten = codBpaiten;
+    }
+
+    public Procedimentos getCodProced() {
+        return codProced;
+    }
+
+    public void setCodProced(Procedimentos codProced) {
+        this.codProced = codProced;
+    }
+
+    public Coletaexa getCodCol() {
+        return codCol;
+    }
+
+    public void setCodCol(Coletaexa codCol) {
+        this.codCol = codCol;
+    }
+
+    public CotasExaLabUni getCodCotaExaLabUni() {
+        return codCotaExaLabUni;
+    }
+
+    public void setCodCotaExaLabUni(CotasExaLabUni codCotaExaLabUni) {
+        this.codCotaExaLabUni = codCotaExaLabUni;
+    }
+
+    public Cotasexalab getCodCotasexalab() {
+        return codCotasexalab;
+    }
+
+    public void setCodCotasexalab(Cotasexalab codCotasexalab) {
+        this.codCotasexalab = codCotasexalab;
+    }
+
+    public Grupoexa getCodExa() {
+        return codExa;
+    }
+
+    public void setCodExa(Grupoexa codExa) {
+        this.codExa = codExa;
+    }
+
+    public UnidadeSolicitante getCodUnisolicitante() {
+        return codUnisolicitante;
+    }
+
+    public void setCodUnisolicitante(UnidadeSolicitante codUnisolicitante) {
+        this.codUnisolicitante = codUnisolicitante;
+    }
+
+    public Labexa getCodLab() {
+        return codLab;
+    }
+
+    public void setCodLab(Labexa codLab) {
+        this.codLab = codLab;
+    }
+
+    public Profissionais getCodProf() {
+        return codProf;
+    }
+
+    public void setCodProf(Profissionais codProf) {
+        this.codProf = codProf;
+    }
+
+    public MaterialExa getCodMaterial() {
+        return codMaterial;
+    }
+
+    public void setCodMaterial(MaterialExa codMaterial) {
+        this.codMaterial = codMaterial;
+    }
+
+    public Usuarios getCodUsu() {
+        return codUsu;
+    }
+
+    public void setCodUsu(Usuarios codUsu) {
+        this.codUsu = codUsu;
+    }
+
+    public Pacientes getCodPro() {
+        return codPro;
+    }
+
+    public void setCodPro(Pacientes codPro) {
+        this.codPro = codPro;
+    }
 
     @Override
     public int hashCode() {

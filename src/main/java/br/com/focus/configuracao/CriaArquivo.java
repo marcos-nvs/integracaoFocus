@@ -42,7 +42,7 @@ public class CriaArquivo {
                     "DIR_BACKUPOKAY",
                     "DIR_BACKUPERRO",
                     "SQLSERVER",
-                    2L, "", "", 90, 30, "", "", "","N");
+                    2L, "", "", 90, 30, "", "", "", "N");
 
             gravaArquivo(configClient.getPathRoot() + "config_client.xml", stream.toXML(configClient));
             configuraDiretorioSistema(configClient);
@@ -137,18 +137,21 @@ public class CriaArquivo {
         }
         return sb.toString();
     }
-    
+
     public static void gravaLog() {
 
-        File file = new File((new File("")).getAbsoluteFile().getAbsolutePath() + "/logs/integrador_" 
-                + DateManipulador.formatDateToPattern("yyyy-MM-dd", SessionHelper.getDateDbSqlServer()) +".log");
+        File file = new File((new File("")).getAbsoluteFile().getAbsolutePath() + "/logs/integrador_"
+                + DateManipulador.formatDateToPattern("yyyy-MM-dd", SessionHelper.getDateDbSqlServer()) + ".log");
 
         if (!file.isFile()) {
             gravaArquivo(file.getAbsolutePath(), TelaIntegracao.taMensagem.getText());
         } else {
             String texto = leArquivo(file.getAbsolutePath());
-            gravaArquivo(file.getAbsolutePath(), texto + TelaIntegracao.taMensagem.getText());
+
+            if (TelaIntegracao.taMensagem != null) {
+                gravaArquivo(file.getAbsolutePath(), texto + TelaIntegracao.taMensagem.getText());
+            }
         }
     }
-    
+
 }

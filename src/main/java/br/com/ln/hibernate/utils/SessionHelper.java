@@ -134,34 +134,53 @@ public class SessionHelper {
         return listaAgendaMaster;
     }
 
-    public static Agendaexa getAgendaExa(Integer pedido, Integer exame) {
+    public static void getUpdateAgendaExa(Integer pedido, Integer exame, String msg) {
 
         Session session = null;
         Transaction tx;
-        Agendaexa agendaExa = null;
 
         try {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
 
-            Query query = session.createSQLQuery("select * from agendaexa where cod_age_exa = :codAgeExa and cod_sub_exa = :codSubExa");
-            query.setInteger("codAgeExa", pedido);
+            Query query = session.createSQLQuery("update agendaexa set retorno_lab_erro = :laberro, enviado_lab = 'S' \n"
+                    + "where cod_agendaexa_master = :codAgendaexaMaster and cod_sub_exa = :codSubExa");
+            query.setString("laberro", msg);
+            query.setInteger("codAgendaexaMaster", pedido);
             query.setInteger("codSubExa", exame);
 
-            List list = query.list();
+            query.executeUpdate();
             tx.commit();
-
-            if (list != null && !list.isEmpty()) {
-                agendaExa = (Agendaexa) list.get(0);
-            }
 
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
             }
         }
+    }
 
-        return agendaExa;
+    public static void getUpdateAgendaExa(Integer pedido, String msg) {
+
+        Session session = null;
+        Transaction tx;
+
+        try {
+            session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
+            tx = session.beginTransaction();
+
+            Query query = session.createSQLQuery("update agendaexa set retorno_lab_erro = :laberro, enviado_lab = 'S' \n"
+                    + "where cod_agendaexa_master = :codAgendaexaMaster and (enviado_lab = 'N' or enviado_lab is null)");
+            query.setString("laberro", msg);
+            query.setInteger("codAgendaexaMaster", pedido);
+
+            query.executeUpdate();
+            tx.commit();
+
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     public static List<Agendaexa> getListAgendaExa(Integer pedido) {

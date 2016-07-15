@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author F12684146896
  */
-@Entity
+ @Entity
 @Table(name = "PACIENTES")
 @XmlRootElement
 @NamedQueries({

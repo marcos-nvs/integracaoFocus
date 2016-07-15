@@ -60,8 +60,8 @@ public class ThreadsIntegracao extends Thread {
                                         ProtocoloDasa dasa = new ProtocoloDasa();
                                         dasa.realizaIntegracao(laboratorio);
                                     }
+                                    TelaIntegracao.incluiMensagem("Sistema parado aguardando próximo ciclo");
                                     
-
                                     Thread.sleep(minimumLoopTime);
                                 } else {
                                     TelaIntegracao.incluiMensagem("Laboratório não está ativo");

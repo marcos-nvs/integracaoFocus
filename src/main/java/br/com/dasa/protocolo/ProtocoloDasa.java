@@ -159,8 +159,6 @@ public class ProtocoloDasa implements Serializable {
 
         RetornoIntegracao retornoIntegracao = montaObjRetorno(retorno);
 
-        System.out.println("XmlRetorno :" + retornoIntegracao.toString());
-
         List<AgendaexaMaster> listaAgendaexaMaster = SessionHelper.getAgendaExaMaster(new Integer(solicitacao.getCodPedido()));
 
         if (listaAgendaexaMaster != null && !listaAgendaexaMaster.isEmpty()) {
@@ -168,39 +166,38 @@ public class ProtocoloDasa implements Serializable {
 
                 if (retornoIntegracao.getSTATUS().equals("SUCCESS")) {
                     TelaIntegracao.incluiMensagem("Solicitação enviada com sucesso ao destino!!!");
-
-                    List<Agendaexa> listaAgendaExa = SessionHelper.getListAgendaExa(agendaexaMaster.getCodAgendaexaMaster());
-
-                    if (listaAgendaExa != null && !listaAgendaExa.isEmpty()) {
-
-                        for (Agendaexa agendaexa : listaAgendaExa) {
-                            if (retornoIntegracao.getLISTA_EXAMES() != null && !retornoIntegracao.getLISTA_EXAMES().isEmpty()) {
-                                //TODO montar uma forma de tratar os exames.
-                            } else {
-                                agendaexa.setEnviadoLab("S");
-                                agendaexa.setRetornoLabErro(retornoIntegracao.getMSG());
-                            }
-                        }
-                    }
-
-                    if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()) {
-                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
-                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
-                    }
-                    if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()) {
-                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
-                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
-                    }
-                    if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()) {
-                        agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
-                        SessionHelper.saveOrUpdateObject(agendaexaMaster);
-                    }
-
-                    TelaIntegracao.incluiMensagem(retornoIntegracao.getMSG());
-
                 } else {
                     TelaIntegracao.incluiMensagem("Solicitação enviada e retornou com falhas!!! \n " + "Lista vazia ou exames não encontrado no destino (DEPARA)");
                 }
+
+                if (retornoIntegracao.getLISTA_ERRORS() != null && !retornoIntegracao.getLISTA_ERRORS().isEmpty()) {
+
+                    for (String msg : retornoIntegracao.getLISTA_ERRORS()) {
+                        if (msg.contains("Exame sem depara")) {
+                            TelaIntegracao.incluiMensagem(msg);
+
+                            String codigo[] = msg.split("=");
+                            SessionHelper.getUpdateAgendaExa(agendaexaMaster.getCodAgendaexaMaster(), new Integer(codigo[1].trim()), msg);
+                        }
+                    }
+                    agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    SessionHelper.saveOrUpdateObject(agendaexaMaster);
+                }
+
+                if (retornoIntegracao.getLISTA_FATALS() != null && !retornoIntegracao.getLISTA_FATALS().isEmpty()) {
+
+                    agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    SessionHelper.saveOrUpdateObject(agendaexaMaster);
+
+                    agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    SessionHelper.saveOrUpdateObject(agendaexaMaster);
+                }
+                if (retornoIntegracao.getLISTA_WARNINGS() != null && !retornoIntegracao.getLISTA_WARNINGS().isEmpty()) {
+                    agendaexaMaster.setRetornoLab(retornoIntegracao.getMSG());
+                    SessionHelper.saveOrUpdateObject(agendaexaMaster);
+                }
+
+                SessionHelper.getUpdateAgendaExa(agendaexaMaster.getCodAgendaexaMaster(), retornoIntegracao.getMSG());
             }
         } else {
             TelaIntegracao.incluiMensagem("Problemas em marcar a solicitação enviada");
@@ -209,11 +206,14 @@ public class ProtocoloDasa implements Serializable {
 
     private RetornoIntegracao montaObjRetorno(String retorno) {
 
+        System.out.println("retorno : " + retorno);
+
         XStream xstream = new XStream();
 
         xstream.alias("br.com.wservice.XmlRetorno", RetornoIntegracao.class);
         xstream.aliasField("requisicaoIntegracao", RetornoIntegracao.class, "br.com.wservice.XmlRetorno");
-        xstream.aliasField("listaExames", RetornoExames.class, "xmlExDados");
+        xstream.aliasField("listaExames", RetornoExames.class, "LISTA_EXAMES");
+        xstream.aliasField("RetornoIntegracao", RetornoExames.class, "xmlExDados");
 
         return (RetornoIntegracao) xstream.fromXML(retorno);
     }
