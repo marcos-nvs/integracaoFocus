@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 public class Integrador extends javax.swing.JFrame {
 
     ThreadsIntegracao integracao;
+    boolean executou = false;
 
     /**
      * Creates new form Integrador
@@ -217,7 +218,7 @@ public class Integrador extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        if (edtStatus.equals("EXECUTANDO")) {
+        if (executou) {
             CriaArquivo.gravaLog();
         }
         System.exit(0);
@@ -225,6 +226,7 @@ public class Integrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         edtStatus.setText("EXECUTANDO");
+        executou = true;
         TelaIntegracao.taMensagem = this.taMensagem;
         TelaIntegracao.edtExame = this.edtExame;
         TelaIntegracao.edtPaciente = this.edtPaciente;
@@ -240,7 +242,7 @@ public class Integrador extends javax.swing.JFrame {
             integracao.start();
 
         } catch (IOException ex) {
-            System.out.println("ex :  " + ex.getMessage()) ;
+            System.out.println("ex :  " + ex.getMessage());
             Logger.getLogger(Integrador.class.getName()).log(Level.SEVERE, null, ex);
         }
 
