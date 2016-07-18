@@ -140,7 +140,7 @@ public class Integrador extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
         jToolBar1.setToolTipText("");
 
-        jLabel5.setText("Versão : 1.0-SNAPSHOT");
+        jLabel5.setText("Versão : 1.0");
         jToolBar1.add(jLabel5);
         jLabel5.getAccessibleContext().setAccessibleName("");
 
