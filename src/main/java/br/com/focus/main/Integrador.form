@@ -259,7 +259,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vers&#xe3;o : 1.0"/>
+            <Property name="text" type="java.lang.String" value="Vers&#xe3;o : 1.0.1"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
