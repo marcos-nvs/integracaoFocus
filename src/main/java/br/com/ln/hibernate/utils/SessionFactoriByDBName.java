@@ -4,6 +4,11 @@
  */
 package br.com.ln.hibernate.utils;
 
+import br.com.focus.configuracao.ConfigClient;
+import br.com.focus.configuracao.CriaArquivo;
+import static br.com.focus.configuracao.CriaArquivo.leArquivo;
+import com.thoughtworks.xstream.XStream;
+import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +43,6 @@ public class SessionFactoriByDBName implements Serializable {
 //        SessionFactory factory = getSessionFactoryFocus();
 //        return factory.openSession();
 //    }
-
     private static SessionFactory getSessionFactoryFocus() {
         SessionFactory sessionFactory = buildSessionFactoryFocus();
         return sessionFactory;
@@ -48,8 +52,16 @@ public class SessionFactoriByDBName implements Serializable {
 
         SessionFactory sessionFactory = null;
         try {
+
+            CriaArquivo criaArquivo = new CriaArquivo();
+            
+            ConfigClient configClient = criaArquivo.constroiArquivoXML();
+            
             Configuration cfg = new Configuration().configure();
             cfg.configure("hibernate.cfg.xml");
+            cfg.setProperty("hibernate.connection.url", configClient.getUrlBanco());
+            cfg.setProperty("hibernate.connection.username", configClient.getUsernameBanco());
+            cfg.setProperty("hibernate.connection.password", configClient.getPasswordBanco());
             StandardServiceRegistry seviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build();
             sessionFactory = cfg.buildSessionFactory(seviceRegistry);
         } catch (HibernateException ex) {

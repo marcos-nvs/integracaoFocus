@@ -1,5 +1,5 @@
 <br.com.focus.configuracao.ConfigClient>
-  <minimumLoopTime>20000</minimumLoopTime>
+  <minimumLoopTime>2000</minimumLoopTime>
   <maxmumLoopTime>10000</maxmumLoopTime>
   <maxmumOldFileDays>90</maxmumOldFileDays>
   <maxmumOldFileDaysLogs>30</maxmumOldFileDaysLogs>
@@ -14,8 +14,11 @@
   <strDbName>SQLSERVER</strDbName>
   <maxSize>2</maxSize>
   <termination></termination>
-  <usuario>FOCUS</usuario>
-  <senha>#ARA4590</senha>
-  <codLaboratorio>10</codLaboratorio>
+  <usuario></usuario>
+  <senha></senha>
   <teste>N</teste>
+  <codLaboratorio></codLaboratorio>
+  <urlBanco>jdbc:sqlserver://NBSP183290;databaseName=saude</urlBanco>
+  <usernameBanco>SA</usernameBanco>
+  <passwordBanco>Kareta46</passwordBanco>
 </br.com.focus.configuracao.ConfigClient>

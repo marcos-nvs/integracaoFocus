@@ -43,6 +43,10 @@ public class ConfigClient implements Serializable{
     private String teste;
     
     private String codLaboratorio;
+    
+    private String urlBanco;
+    private String usernameBanco;
+    private String passwordBanco;
 
     public ConfigClient() {
     }
@@ -50,7 +54,7 @@ public class ConfigClient implements Serializable{
     public ConfigClient(int minimumLoopTime, int maxmumLoopTime, String smbDomain, String smbUser, String smbPassword, String nameDirIn, 
             String nameDirReturn, String pathRoot, String nameDirBackUpOkay, String nameDirBackUpError, String strDbName, Long maxSize, 
             String termination, String urlWebService,int daysBack,int maxmumOldFileDaysLogs, String usuario, String senha, String codLaboratorio,
-            String teste) {
+            String teste, String urlBanco, String usernameBanco, String passwordBanco) {
 
         if(minimumLoopTime  == 0){
            this.minimumLoopTime = 5000; 
@@ -93,6 +97,9 @@ public class ConfigClient implements Serializable{
         this.senha = senha;
         this.codLaboratorio = codLaboratorio;
         this.teste = "N";
+        this.urlBanco = urlBanco;
+        this.usernameBanco = usernameBanco;
+        this.passwordBanco = passwordBanco;
         
     }
 
@@ -246,6 +253,30 @@ public class ConfigClient implements Serializable{
 
     public void setTeste(String teste) {
         this.teste = teste;
+    }
+
+    public String getUrlBanco() {
+        return urlBanco;
+    }
+
+    public void setUrlBanco(String urlBanco) {
+        this.urlBanco = urlBanco;
+    }
+
+    public String getUsernameBanco() {
+        return usernameBanco;
+    }
+
+    public void setUsernameBanco(String usernameBanco) {
+        this.usernameBanco = usernameBanco;
+    }
+
+    public String getPasswordBanco() {
+        return passwordBanco;
+    }
+
+    public void setPasswordBanco(String passwordBanco) {
+        this.passwordBanco = passwordBanco;
     }
 
     @Override

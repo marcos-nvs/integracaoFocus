@@ -42,7 +42,7 @@ public class CriaArquivo {
                     "DIR_BACKUPOKAY",
                     "DIR_BACKUPERRO",
                     "SQLSERVER",
-                    2L, "", "", 90, 30, "", "", "", "N");
+                    2L, "", "", 90, 30, "", "", "", "N","jdbc:sqlserver://NBSP183290;databaseName=saude","SA","Kareta46");
 
             gravaArquivo(configClient.getPathRoot() + "config_client.xml", stream.toXML(configClient));
             configuraDiretorioSistema(configClient);
