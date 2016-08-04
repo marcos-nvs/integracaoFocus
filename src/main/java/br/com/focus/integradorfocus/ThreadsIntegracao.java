@@ -57,9 +57,11 @@ public class ThreadsIntegracao extends Thread {
                                 if (laboratorio.getAtivo()) {
                                     TelaIntegracao.incluiMensagem("Laboratorio : " + laboratorio.getNome());
                                     
-                                    if (laboratorio.getCodLab() == 10){
+                                    if (laboratorio.getProtocolo().equals("DASA")){
                                         ProtocoloDasa dasa = new ProtocoloDasa();
                                         dasa.realizaIntegracao(laboratorio);
+                                    } else {
+                                        TelaIntegracao.incluiMensagem("Não foi identificado o protocolo desse Laboratório!!!!");
                                     }
                                     TelaIntegracao.incluiMensagem("Sistema parado aguardando próximo ciclo");
                                     

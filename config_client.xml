@@ -14,10 +14,10 @@
   <strDbName>SQLSERVER</strDbName>
   <maxSize>2</maxSize>
   <termination></termination>
-  <usuario></usuario>
-  <senha></senha>
+  <usuario>FOCUS</usuario>
+  <senha>#ARA4590</senha>
   <teste>N</teste>
-  <codLaboratorio></codLaboratorio>
+  <codLaboratorio>10</codLaboratorio>
   <urlBanco>jdbc:sqlserver://NBSP183290;databaseName=saude</urlBanco>
   <usernameBanco>SA</usernameBanco>
   <passwordBanco>Kareta46</passwordBanco>

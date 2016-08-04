@@ -32,7 +32,7 @@ public class SessionHelper {
             session = SessionFactoriByDBName.getCurrentSessionFacesFocus();
             tx = session.beginTransaction();
 
-            Query query = session.createSQLQuery("select COD_LAB, NOME, ATIVO from LABEXA where cod_lab = :codLab");
+            Query query = session.createSQLQuery("select COD_LAB, NOME, ATIVO, PROTOCOLO_INTEGRACAO from LABEXA where cod_lab = :codLab");
             query.setInteger("codLab", codLaboratorio);
 
             List list = query.list();
@@ -48,6 +48,7 @@ public class SessionHelper {
                     laboratorio.setCodLab((Integer) tupla[0]);
                     laboratorio.setNome((String) tupla[1]);
                     laboratorio.setAtivo((Boolean) tupla[2]);
+                    laboratorio.setProtocolo((String) tupla[3]);
                 }
             }
 

@@ -17,6 +17,8 @@ public class Laboratorio implements Serializable {
     private Integer codLab;
     private String nome;
     private Boolean ativo;
+    private String protocolo;
+            
 
     public Laboratorio() {
     }
@@ -45,6 +47,14 @@ public class Laboratorio implements Serializable {
         this.ativo = ativo;
     }
 
+    public String getProtocolo() {
+        return protocolo;
+    }
+
+    public void setProtocolo(String protocolo) {
+        this.protocolo = protocolo;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

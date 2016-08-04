@@ -65,6 +65,8 @@ public class Labexa implements Serializable {
     @Column(name = "TIPO_C_V")
     private Character tipoCV;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "PROTOCOLO_INTEGRACAO")
+    private String protocoloIntegracao;
     @Column(name = "VALORTOTAL")
     private Float valortotal;
     @Column(name = "ATIVO")
