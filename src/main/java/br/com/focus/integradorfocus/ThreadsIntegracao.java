@@ -36,7 +36,6 @@ public class ThreadsIntegracao extends Thread {
 
         TelaIntegracao.configClient = configClient;
         this.codLaboratorio = configClient.getCodLaboratorio();
-        this.codProtocolo = configClient.getCodProtocolo();
         this.maxmumLoopTime = configClient.getMaxmumLoopTime();
         this.minimumLoopTime = configClient.getMinimumLoopTime();
         this.minimumLoopTimeBase = configClient.getMinimumLoopTime();
@@ -58,7 +57,7 @@ public class ThreadsIntegracao extends Thread {
                                 if (laboratorio.getAtivo()) {
                                     TelaIntegracao.incluiMensagem("Laboratorio : " + laboratorio.getNome());
                                     
-                                    if (laboratorio.getCodLab() == new Integer(codProtocolo)){
+                                    if (laboratorio.getCodLab() == 10){
                                         ProtocoloDasa dasa = new ProtocoloDasa();
                                         dasa.realizaIntegracao(laboratorio);
                                     }
