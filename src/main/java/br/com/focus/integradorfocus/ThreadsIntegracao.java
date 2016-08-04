@@ -27,6 +27,7 @@ import javax.swing.JTextField;
 public class ThreadsIntegracao extends Thread {
 
     String codLaboratorio;
+    String codProtocolo;
     private final int minimumLoopTime;
     private int minimumLoopTimeBase;
     private final int maxmumLoopTime;
@@ -35,6 +36,7 @@ public class ThreadsIntegracao extends Thread {
 
         TelaIntegracao.configClient = configClient;
         this.codLaboratorio = configClient.getCodLaboratorio();
+        this.codProtocolo = configClient.getCodProtocolo();
         this.maxmumLoopTime = configClient.getMaxmumLoopTime();
         this.minimumLoopTime = configClient.getMinimumLoopTime();
         this.minimumLoopTimeBase = configClient.getMinimumLoopTime();
@@ -56,7 +58,7 @@ public class ThreadsIntegracao extends Thread {
                                 if (laboratorio.getAtivo()) {
                                     TelaIntegracao.incluiMensagem("Laboratorio : " + laboratorio.getNome());
                                     
-                                    if (laboratorio.getCodLab() == 10){
+                                    if (laboratorio.getCodLab() == new Integer(codProtocolo)){
                                         ProtocoloDasa dasa = new ProtocoloDasa();
                                         dasa.realizaIntegracao(laboratorio);
                                     }

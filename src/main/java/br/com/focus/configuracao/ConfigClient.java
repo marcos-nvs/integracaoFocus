@@ -43,6 +43,7 @@ public class ConfigClient implements Serializable{
     private String teste;
     
     private String codLaboratorio;
+    private String codProtocolo;
     
     private String urlBanco;
     private String usernameBanco;
@@ -54,7 +55,7 @@ public class ConfigClient implements Serializable{
     public ConfigClient(int minimumLoopTime, int maxmumLoopTime, String smbDomain, String smbUser, String smbPassword, String nameDirIn, 
             String nameDirReturn, String pathRoot, String nameDirBackUpOkay, String nameDirBackUpError, String strDbName, Long maxSize, 
             String termination, String urlWebService,int daysBack,int maxmumOldFileDaysLogs, String usuario, String senha, String codLaboratorio,
-            String teste, String urlBanco, String usernameBanco, String passwordBanco) {
+            String codProtocolo, String teste, String urlBanco, String usernameBanco, String passwordBanco) {
 
         if(minimumLoopTime  == 0){
            this.minimumLoopTime = 5000; 
@@ -96,6 +97,7 @@ public class ConfigClient implements Serializable{
         this.usuario = usuario;
         this.senha = senha;
         this.codLaboratorio = codLaboratorio;
+        this.codProtocolo = codProtocolo;
         this.teste = "N";
         this.urlBanco = urlBanco;
         this.usernameBanco = usernameBanco;
@@ -247,6 +249,14 @@ public class ConfigClient implements Serializable{
         this.codLaboratorio = codLaboratorio;
     }
 
+    public String getCodProtocolo() {
+        return codProtocolo;
+    }
+
+    public void setCodProtocolo(String codProtocolo) {
+        this.codProtocolo = codProtocolo;
+    }
+    
     public String getTeste() {
         return teste;
     }
