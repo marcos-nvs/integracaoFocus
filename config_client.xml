@@ -6,19 +6,20 @@
   <smbDomain></smbDomain>
   <smbUser></smbUser>
   <smbPassword></smbPassword>
-  <nameDirIn>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/DIR_ENTRADA</nameDirIn>
-  <nameDirReturn>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/DIR_RETORNO</nameDirReturn>
-  <pathRoot>C:\Users\f12684146896\Documents\NetBeansProjects\IntegradorFocus/</pathRoot>
+  <nameDirIn>C:\Users\f12684146896\Documents\NetBeansProjects\integracaoFocus/DIR_ENTRADA</nameDirIn>
+  <nameDirReturn>C:\Users\f12684146896\Documents\NetBeansProjects\integracaoFocus/DIR_RETORNO</nameDirReturn>
+  <pathRoot>C:\Users\f12684146896\Documents\NetBeansProjects\integracaoFocus/</pathRoot>
   <nameDirBackUpOkay>DIR_BACKUPOKAY</nameDirBackUpOkay>
   <nameDirBackUpError>DIR_BACKUPERRO</nameDirBackUpError>
   <strDbName>SQLSERVER</strDbName>
   <maxSize>2</maxSize>
   <termination></termination>
-  <usuario>FOCUS</usuario>
-  <senha>#ARA4590</senha>
+  <usuario></usuario>
+  <senha></senha>
   <teste>N</teste>
-  <codLaboratorio>10</codLaboratorio>
+  <codLaboratorio></codLaboratorio>
   <urlBanco>jdbc:sqlserver://NBSP183290;databaseName=saude</urlBanco>
   <usernameBanco>SA</usernameBanco>
   <passwordBanco>Kareta46</passwordBanco>
+  <imagemIcon>C:\FOCUS\icon.png</imagemIcon>
 </br.com.focus.configuracao.ConfigClient>

@@ -47,6 +47,8 @@ public class ConfigClient implements Serializable{
     private String urlBanco;
     private String usernameBanco;
     private String passwordBanco;
+    
+    private String imagemIcon;
 
     public ConfigClient() {
     }
@@ -54,7 +56,7 @@ public class ConfigClient implements Serializable{
     public ConfigClient(int minimumLoopTime, int maxmumLoopTime, String smbDomain, String smbUser, String smbPassword, String nameDirIn, 
             String nameDirReturn, String pathRoot, String nameDirBackUpOkay, String nameDirBackUpError, String strDbName, Long maxSize, 
             String termination, String urlWebService,int daysBack,int maxmumOldFileDaysLogs, String usuario, String senha, String codLaboratorio,
-            String teste, String urlBanco, String usernameBanco, String passwordBanco) {
+            String teste, String urlBanco, String usernameBanco, String passwordBanco, String imagemIcon) {
 
         if(minimumLoopTime  == 0){
            this.minimumLoopTime = 5000; 
@@ -100,6 +102,7 @@ public class ConfigClient implements Serializable{
         this.urlBanco = urlBanco;
         this.usernameBanco = usernameBanco;
         this.passwordBanco = passwordBanco;
+        this.imagemIcon = imagemIcon;
         
     }
 
@@ -279,6 +282,14 @@ public class ConfigClient implements Serializable{
         this.passwordBanco = passwordBanco;
     }
 
+    public String getImagemIcon() {
+        return imagemIcon;
+    }
+
+    public void setImagemIcon(String imagemIcon) {
+        this.imagemIcon = imagemIcon;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

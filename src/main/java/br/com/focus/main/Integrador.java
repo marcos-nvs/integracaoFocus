@@ -34,6 +34,7 @@ public class Integrador extends javax.swing.JFrame {
 
     ThreadsIntegracao integracao;
     boolean executou = false;
+    ConfigClient configCliente;
 
     /**
      * Creates new form Integrador
@@ -263,7 +264,7 @@ public class Integrador extends javax.swing.JFrame {
         jButton3.setEnabled(false);
 
         try {
-            ConfigClient configCliente = CriaArquivo.constroiArquivoXML();
+            configCliente = CriaArquivo.constroiArquivoXML();
             integracao = new ThreadsIntegracao(configCliente);
 
             integracao.start();
@@ -292,35 +293,40 @@ public class Integrador extends javax.swing.JFrame {
 
     private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
 
-        SystemTray tray = SystemTray.getSystemTray();
-        TrayIcon trayIcon;
-        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Focus\\icon.png");
-        trayIcon = new TrayIcon(image, "Retornar");
-
-        ActionListener listener;
-        listener = new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                tray.remove(trayIcon);
-                setVisible(true);
-                setExtendedState(NORMAL);
-            }
-        };
-
-        PopupMenu pop = new PopupMenu();
-        MenuItem menuItem = new MenuItem("Retornar");
-        menuItem.addActionListener(listener);
-        pop.add(menuItem);
-        trayIcon.setPopupMenu(pop);
+        try {
+            SystemTray tray = SystemTray.getSystemTray();
+            TrayIcon trayIcon;
+            configCliente = CriaArquivo.constroiArquivoXML();
+            Image image = Toolkit.getDefaultToolkit().getImage(configCliente.getImagemIcon());
+            trayIcon = new TrayIcon(image, "Retornar");
+            
+            ActionListener listener;
+            listener = new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    tray.remove(trayIcon);
+                    setVisible(true);
+                    setExtendedState(NORMAL);
+                }
+            };
+            
+            PopupMenu pop = new PopupMenu();
+            MenuItem menuItem = new MenuItem("Retornar");
+            menuItem.addActionListener(listener);
+            pop.add(menuItem);
+            trayIcon.setPopupMenu(pop);
 //        trayIcon = new TrayIcon(image,"Retornar", pop);
 
-        if (SystemTray.isSupported()) {
-            try {
-                trayIcon.setImageAutoSize(true);
-                tray.add(trayIcon);
-                setVisible(false);
-            } catch (AWTException ex) {
-                Logger.getLogger(Integrador.class.getName()).log(Level.SEVERE, null, ex);
-            }
+if (SystemTray.isSupported()) {
+    try {
+        trayIcon.setImageAutoSize(true);
+        tray.add(trayIcon);
+        setVisible(false);
+    } catch (AWTException ex) {
+        Logger.getLogger(Integrador.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+        } catch (IOException ex) {
+            Logger.getLogger(Integrador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowIconified
 
